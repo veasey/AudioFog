@@ -5,17 +5,16 @@
 
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link active" href="/upload">Upload</a>
+      <a class="nav-link active" href="{{ route('dashboard.upload') }}">Upload</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="/tracks">Your Tracks</a>
+      <a class="nav-link" href="{{ route('dashboard.tracks') }}">Your Tracks</a>
     </li>
   </ul>
 
-  <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data" class="p-3 border-left border-right">
+  <form action="{{ route('track.store') }}" method="POST" enctype="multipart/form-data" class="p-3 border-left border-right">
 
     @include('inc.messages')
-
     {{ csrf_field() }}
 
     <div class="form-group">

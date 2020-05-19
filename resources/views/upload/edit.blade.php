@@ -5,10 +5,10 @@
 
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link" href="/upload">Upload</a>
+      <a class="nav-link" href="{{ route('dashboard.upload') }}">Upload</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="/tracks">Your Tracks</a>
+      <a class="nav-link active" href="{{ route('dashboard.tracks') }}">Your Tracks</a>
     </li>
   </ul>
 

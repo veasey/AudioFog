@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::any('/upload', 'UploadController@index')->name('upload');
-Route::get('/tracks', 'TracksController@show')->name('tracks');
-Route::resource('track', 'TracksController');
+Route::redirect('/upload', '/dashboard/upload');
+Route::any('dashboard/upload', 'Dashboard\TracksController@create')->name('dashboard.upload');
+Route::get('dashboard/tracks', 'Dashboard\TracksController@show')->name('dashboard.tracks');
+Route::resource('track', 'Dashboard\TracksController');
