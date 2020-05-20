@@ -7,14 +7,19 @@ Share and play audio files for free.
 - Homepage
   - About
   - Tag Cloud
+
   - All Tracks
     - Filter by tag
     - Filter by Artist
     - Search
     - Most and Least played
+
+    - a year field
+
   - View single track
     - share / embed
     - download
+
   - Player in bottom
 
 - Profiles

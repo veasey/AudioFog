@@ -24,13 +24,18 @@
       {{ csrf_field() }}
 
       <div class="form-group">
-        <label for="title">Track Title</label>
+        <label for="title">Title</label>
         <input type="text" class="form-control" id="title" name="title" aria-describedby="title" value="{{ $track->title }}">
       </div>
 
       <div class="form-group">
-        <label for="description">Track Description</label>
-        <textarea class="form-control" id="description" name="description" rows="3">{{ $track->desc }}</textarea>
+        <label for="description">Description</label>
+        <textarea class="form-control" id="desc" name="desc" rows="3">{{ $track->desc }}</textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="tags">Tags</label>
+        <input type="text" class="form-control" id="tags" name="tags" aria-describedby="tags" placeholder="#rock #guitar #boldaslove" value="{{ $track->getTags() }}">
       </div>
 
       <button class="btn btn-primary" type="submit">Update</button>

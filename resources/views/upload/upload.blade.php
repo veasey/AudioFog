@@ -29,7 +29,12 @@
 
     <div class="form-group">
       <label for="description">Track Description</label>
-      <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+      <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="tags">Tags</label>
+      <input type="text" class="form-control" id="tags" name="tags" aria-describedby="tags" placeholder="#rock #guitar #boldaslove">
     </div>
 
     <input type="submit" value=" Save " />
