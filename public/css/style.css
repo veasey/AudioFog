@@ -10933,3 +10933,11 @@ a.text-dark:focus {
   }
 }
 
+
+.playtrack {
+  cursor: pointer;
+}
+.playtrack.active {
+  background: #ddd;
+  color: #fff;
+}

@@ -3,10 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-use League\CommonMark\DocParser;
-use League\CommonMark\Environment;
-use League\CommonMark\HtmlRenderer;
+use Illuminate\Support\Facades\Storage;
 use \Spatie\Tags\HasTags;
 use \Spatie\Tags\Tag;
 
@@ -36,5 +33,9 @@ class Track extends Model
         }
       }
       return implode(' ', $tags);
+    }
+
+    public function getFilepath(): string {
+      return Storage::url("audiofiles/$this->user_id/$this->filename");
     }
 }
