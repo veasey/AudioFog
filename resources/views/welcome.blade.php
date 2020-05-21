@@ -16,23 +16,43 @@
 
       <div class="container">
 
-        <h1>AudioFog</h1>
+        <div align="center">
+          <h1>AudioFog</h1>
+          <p class="text-info">A free, opensource alternative to share and play music.</p>
+        </div>
 
-        <ul class="list-group">
-          @foreach ($tracks as $track)
-            <li class="playtrack list-group-item" data-filepath="{{ $track->getFilepath() }}">{{ $track->title }}</li>
-          @endforeach
-        </ul>
+        <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <!-- tracks -->
+              <ul class="tracks">
+                @foreach ($tracks as $track)
+                  <li class="playtrack" data-filepath="{{ $track->getFilepath() }}">{{ $track->title }}</li>
+                @endforeach
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <!-- tracks -->
+              <ul>
+                @foreach ($tags as $tag)
+                  <li class="tag">{{ $tag->name }}</li>
+                @endforeach
+              </ul>
+            </div>
+          </div>
       </div>
 
-      <div class="footer">
+
+      <footer class="footer">
         <div class="container">
+
           <audio id="player" controls>
   					<source src="" type="audio/mpeg">
   						Your browser does not support the audio element.
   				</audio>
+
         </div>
-      </div>
+      </footer>
 
     <script src="{{ asset('js/app.js') }}"></script>
     </body>
