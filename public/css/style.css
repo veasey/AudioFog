@@ -10935,11 +10935,15 @@ a.text-dark:focus {
 
 
 .playtrack {
+  font-size: 1.5em;
   cursor: pointer;
+  color: white;
 }
-.playtrack.active {
-  background: #ddd;
-  color: #fff;
+.playtrack .title {
+  color: black;
+}
+.playtrack:hover {
+  color: black;
 }
 @media (min-width: 480px) {
   ul.track {

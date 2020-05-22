@@ -11,7 +11,7 @@
       <!-- tracks -->
       <ul class="tracks list-unstyled">
         @forelse ($tracks as $track)
-          <li class="playtrack" data-filepath="{{ $track->getFilepath() }}">{{ $track->title }}</li>
+          <x-track trackid="{{ $track->id }}" />
         @empty
           <p>No tracks yet. Maybe <a href="{{route('dashboard.upload')}}">upload</a> some?</p>
         @endforelse

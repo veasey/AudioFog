@@ -5,6 +5,9 @@ Share and play audio files for free.
 ## Todo
 
 - Homepage
+  - autoplay first track
+  - play next track in list
+
   - Search
   - Most and Least played
   - count plays
