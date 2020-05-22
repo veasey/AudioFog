@@ -1,8 +1,8 @@
 @extends('layouts.player')
 @section('content')
 <div class="jumbotron mt-3">
-  <h1 class="display-4">Clint Veasey</h1>
-  <p class="lead">A collection of noises for your ears</p>
+  <h1 class="display-4">{{$tag}}</h1>
+  <p class="lead">All tracks tagged as <a href="{{route('tag', $tag)}}">{{$tag}}</a></p>
 </div>
 
 <div class="container">
@@ -12,19 +12,15 @@
       <ul class="tracks list-unstyled">
         @forelse ($tracks as $track)
           <li class="playtrack" data-filepath="{{ $track->getFilepath() }}">{{ $track->title }}</li>
-        @empty
-          <p>No tracks yet. Maybe <a href="{{route('dashboard.upload')}}">upload</a> some?</p>
-        @endforelse
+        @endforeach
       </ul>
     </div>
     <div class="col-md-4">
       <!-- tracks -->
       <ul>
-        @forelse ($tags as $tag)
+        @foreach ($tags as $tag)
           <li class="tag list-unstyled"><a href="/tag/{{$tag->name}}">{{ $tag->name }}</a></li>
-        @empty
-          <p>No tagged tracks found</p>
-        @endforelse
+        @endforeach
       </ul>
     </div>
   </div>

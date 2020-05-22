@@ -17,4 +17,19 @@ class PlayerController extends Controller
       ];
       return view('welcome')->with($viewData);
     }
+
+    // return tracks with tag
+    public function taggedTracks($tag) {
+
+      if (!Tag::findFromString($tag)) {
+        abort(404);
+      }
+
+      $viewData = [
+        'tracks' => Track::withAnyTags([$tag])->get(),
+        'tags'   => Tag::inRandomOrder()->get(),
+        'tag'    => $tag
+      ];
+      return view('taggedTracks')->with($viewData);
+    }
 }

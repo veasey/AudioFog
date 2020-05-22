@@ -5,25 +5,15 @@ Share and play audio files for free.
 ## Todo
 
 - Homepage
-  - About
-  - Tag Cloud
-
-  - All Tracks
-    - Filter by tag
-    - Filter by Artist
-    - Search
-    - Most and Least played
-
-    - a year field
-
+  - Search
+  - Most and Least played
+  - count plays
+  - a year field
   - View single track
     - share / embed
     - download
 
-  - Player in bottom
-
 - Profiles
-- Tags
 - Album Art
   - upload
   - google glitch
