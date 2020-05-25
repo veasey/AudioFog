@@ -13,7 +13,7 @@ class Track extends Model
 
     protected $table = 'track';
 
-    protected $fillable = ['title', 'desc', 'tags'];
+    protected $fillable = ['title', 'desc', 'tags', 'plays'];
 
     protected $attributes = [
         'plays' => 0,

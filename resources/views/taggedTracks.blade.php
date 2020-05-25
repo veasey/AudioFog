@@ -11,7 +11,7 @@
       <!-- tracks -->
       <ul class="tracks list-unstyled">
         @forelse ($tracks as $track)
-          <li class="playtrack" data-filepath="{{ $track->getFilepath() }}">{{ $track->title }}</li>
+          <x-track trackid="{{ $track->id }}" />
         @endforeach
       </ul>
     </div>

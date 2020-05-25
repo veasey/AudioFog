@@ -49669,375 +49669,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-var app = new Vue({
-  el: '#app'
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
-});
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath'); // change audio source
-
-    audio[0].pause();
-    audio[0].load(); //suspends and restores all audio element
-
-    $('audio source').attr('src', filename);
-    audio[0].play();
-  });
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-  });
-});
-
-/***/ }),
-
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -50152,6 +49783,78 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/trackshare.js":
+/*!************************************!*\
+  !*** ./resources/js/trackshare.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
+// const files = require.context('./', true, /\.vue$/i)
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
+Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+var app = new Vue({
+  el: '#app'
+});
+global.$ = global.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+$(document).ready(function () {
+  $('.playtrack').click(function () {
+    $('.playtrack').removeClass('playing');
+    $(this).addClass('playing');
+    var audio = $('audio');
+    var filename = $(this).data('filepath');
+    var trackid = $(this).data('trackid'); // increase number of plays
+    //$.post("/track/addplay", { trackid: trackid });
+
+    $.ajax({
+      type: "POST",
+      data: {
+        "_token": $('meta[name="csrf-token"]').attr('content'),
+        "id": trackid
+      },
+      url: '/track/addplay',
+      success: function success(msg) {
+        // change audio source
+        audio[0].pause(); //$('audio source').attr('src', '');
+
+        audio[0].load(); //suspends and restores all audio element
+
+        $('audio source').attr('src', filename);
+        audio[0].play();
+      }
+    });
+  }); // init tooltips
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./resources/less/global.less":
 /*!************************************!*\
   !*** ./resources/less/global.less ***!
@@ -50175,13 +49878,13 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 0:
-/*!******************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/less/global.less ./resources/sass/app.scss ***!
-  \******************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** multi ./resources/js/trackshare.js ./resources/less/global.less ./resources/sass/app.scss ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/trackshare/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/vagrant/trackshare/resources/js/trackshare.js */"./resources/js/trackshare.js");
 __webpack_require__(/*! /home/vagrant/trackshare/resources/less/global.less */"./resources/less/global.less");
 module.exports = __webpack_require__(/*! /home/vagrant/trackshare/resources/sass/app.scss */"./resources/sass/app.scss");
 

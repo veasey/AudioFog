@@ -32,4 +32,14 @@ class PlayerController extends Controller
       ];
       return view('taggedTracks')->with($viewData);
     }
+
+    public function addPlay(Request $request) {
+
+      $track = Track::findOrFail($request->id);
+      $track->plays++;
+      $track->save();
+
+      return response('Thankyou Listener', 200)
+        ->header('Content-Type', 'text/plain');
+    }
 }
