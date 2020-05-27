@@ -33,19 +33,28 @@ const app = new Vue({
 
 global.$ = global.jQuery = require('jquery');
 
+function loadTrack( track) {
+
+  $('audio')[0].load();
+  $('audio')[0].pause();
+  $('audio source').attr('src', track.data('filepath'));
+
+  $('.playtrack').removeClass('playing');
+  track.addClass('playing');
+}
+
+
 $( document ).ready(function() {
+
+  // autoload first track
+  loadTrack($('.playtrack').first());
 
   $('.playtrack').click(function() {
 
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
+    loadTrack($(this));
 
     var audio = $('audio');
-    var filename = $(this).data('filepath');
     var trackid = $(this).data('trackid');
-
-    // increase number of plays
-    //$.post("/track/addplay", { trackid: trackid });
 
     $.ajax({
 
@@ -55,10 +64,6 @@ $( document ).ready(function() {
        success: function(msg){
 
          // change audio source
-         audio[0].pause();
-         //$('audio source').attr('src', '');
-         audio[0].load();//suspends and restores all audio element
-         $('audio source').attr('src', filename);
          audio[0].play();
        }
     });

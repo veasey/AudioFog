@@ -49819,15 +49819,22 @@ var app = new Vue({
   el: '#app'
 });
 global.$ = global.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-$(document).ready(function () {
-  $('.playtrack').click(function () {
-    $('.playtrack').removeClass('playing');
-    $(this).addClass('playing');
-    var audio = $('audio');
-    var filename = $(this).data('filepath');
-    var trackid = $(this).data('trackid'); // increase number of plays
-    //$.post("/track/addplay", { trackid: trackid });
 
+function loadTrack(track) {
+  $('audio')[0].load();
+  $('audio')[0].pause();
+  $('audio source').attr('src', track.data('filepath'));
+  $('.playtrack').removeClass('playing');
+  track.addClass('playing');
+}
+
+$(document).ready(function () {
+  // autoload first track
+  loadTrack($('.playtrack').first());
+  $('.playtrack').click(function () {
+    loadTrack($(this));
+    var audio = $('audio');
+    var trackid = $(this).data('trackid');
     $.ajax({
       type: "POST",
       data: {
@@ -49837,11 +49844,6 @@ $(document).ready(function () {
       url: '/track/addplay',
       success: function success(msg) {
         // change audio source
-        audio[0].pause(); //$('audio source').attr('src', '');
-
-        audio[0].load(); //suspends and restores all audio element
-
-        $('audio source').attr('src', filename);
         audio[0].play();
       }
     });
@@ -49852,17 +49854,6 @@ $(document).ready(function () {
   });
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
-
-/***/ }),
-
-/***/ "./resources/less/global.less":
-/*!************************************!*\
-  !*** ./resources/less/global.less ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -49877,16 +49868,27 @@ $(document).ready(function () {
 
 /***/ }),
 
+/***/ "./resources/sass/player.scss":
+/*!************************************!*\
+  !*** ./resources/sass/player.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
 /*!*************************************************************************************************!*\
-  !*** multi ./resources/js/trackshare.js ./resources/less/global.less ./resources/sass/app.scss ***!
+  !*** multi ./resources/js/trackshare.js ./resources/sass/app.scss ./resources/sass/player.scss ***!
   \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/vagrant/trackshare/resources/js/trackshare.js */"./resources/js/trackshare.js");
-__webpack_require__(/*! /home/vagrant/trackshare/resources/less/global.less */"./resources/less/global.less");
-module.exports = __webpack_require__(/*! /home/vagrant/trackshare/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/trackshare/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/vagrant/trackshare/resources/sass/player.scss */"./resources/sass/player.scss");
 
 
 /***/ })

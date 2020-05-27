@@ -1,7 +1,7 @@
 {
     "/js/trackshare.js": "/js/trackshare.js",
-    "/css/global.css": "/css/global.css",
     "/css/app.css": "/css/app.css",
+    "/css/player.css": "/css/player.css",
     "/resources/js/trackshare.js": "/resources/js/trackshare.js",
     "/css/style.css": "/css/style.css"
 }

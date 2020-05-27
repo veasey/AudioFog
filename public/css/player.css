@@ -1,23 +1,27 @@
-@width-phone: ~'(min-width: 480px)';
-
 .playtrack {
-
   font-size: 1.5em;
-
   cursor: pointer;
-
   color: white;
-  .title {
-    color: black;
-  }
-
-  &:hover {
-    color: black;
-  }
 }
 
-ul.track {
-  @media @width-phone {
+.playtrack .title {
+  color: black;
+}
+
+.playtrack:hover {
+  color: black;
+}
+
+.playtrack span {
+  padding: 0 0.5em;
+}
+
+.playtrack.playing span {
+  background: #6cb2eb;
+}
+
+@media (min-width: 480px) {
+  ul.track {
     -moz-column-count: 4;
     -moz-column-gap: 20px;
     -webkit-column-count: 4;
@@ -33,5 +37,7 @@ ul.track {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px;
+  /* Vertically center the text there */
 }
+

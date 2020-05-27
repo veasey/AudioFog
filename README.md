@@ -5,21 +5,28 @@ Share and play audio files for free.
 ## Todo
 
 - Homepage
-  - autoplay first track
+
   - play next track in list
 
-  - Search
-  - Most and Least played
-  - count plays
-  - a year field
   - View single track
     - share / embed
     - download
 
-- Profiles
-- Album Art
-  - upload
-  - google glitch
+  - a year field
+  - album / playlist field
+
+
+  - Album Art
+    - upload
+    - google glitch
+
+  - Artist Profiles
+
+  - Search
+  - Sort:
+    - Most and Least played
+    - Track Length
+    - Default: Age
 
 ## Troubleshooting
 
