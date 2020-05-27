@@ -10934,6 +10934,10 @@ a.text-dark:focus {
 }
 
 
+.jumbotron.info {
+  display: none;
+}
+
 .playtrack {
   font-size: 1.5em;
   cursor: pointer;

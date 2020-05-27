@@ -6,16 +6,16 @@ Share and play audio files for free.
 
 - Homepage
 
-  - View single track
-    - share / embed
-    - download
-
-  - a year field
-  - album / playlist field
-
-
   - Album Art
     - upload
+
+--- can go online ---
+
+- View single track info
+  - share / embed
+  - download
+
+
     - google glitch
 
   - Artist Profiles

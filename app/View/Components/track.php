@@ -12,6 +12,9 @@ class Track extends Component
     public $filepath;
     public $title;
     public $plays;
+    public $artist;
+    public $year;
+    public $album;
 
     /**
      * Create a new component instance.
@@ -26,6 +29,9 @@ class Track extends Component
         $this->filepath = $track->getFilepath();
         $this->title = $track->title;
         $this->plays = $track->plays;
+        $this->year = $track->year;
+        $this->album = $track->album;
+        $this->artist = $track->artist;
     }
 
     /**

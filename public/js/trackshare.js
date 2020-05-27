@@ -49820,6 +49820,33 @@ var app = new Vue({
 });
 global.$ = global.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
+function trackInfoLoad(track) {
+  // clear info
+  $('.song-title').text('');
+  $('.song-album').text('');
+  $('.song-year').text(''); // toggle jumbotrons
+
+  $('.jumbotron.welcome').hide();
+  $('.jumbotron.info').show(); // title
+
+  var title = track.find('title').text();
+
+  if (track.data('artist')) {
+    title = track.data('artist') + ' - ' + title;
+  }
+
+  $('.song-title').text(title); // album
+
+  if (track.data('album')) {
+    $('.song-album').text(track.data('album'));
+  } // year
+
+
+  if (track.data('year')) {
+    $('.song-year').text(track.data('year'));
+  }
+}
+
 function trackLoad(track) {
   $('audio')[0].load();
   $('audio')[0].pause();
@@ -49835,6 +49862,7 @@ function trackPlay(track) {
   audio[0].addEventListener('ended', function () {
     trackPlay(track.next());
   });
+  trackInfoLoad(track);
   trackLoad(track);
   $.ajax({
     type: "POST",
@@ -49845,13 +49873,7 @@ function trackPlay(track) {
     url: '/track/addplay',
     success: function success(msg) {
       // change audio source
-      audio[0].play(); // play next track
-
-      /*
-      audio[0].addEventListener('ended',function(){
-        trackPlay(track.next());
-      });
-      */
+      audio[0].play();
     }
   });
 }

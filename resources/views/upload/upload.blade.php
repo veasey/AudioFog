@@ -23,8 +23,8 @@
     </div>
 
     <div class="form-group">
-      <label for="title">Track Title</label>
-      <input type="text" class="form-control" id="title" name="title" aria-describedby="title" placeholder="Track title">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" aria-describedby="title" placeholder="Toccata and Fugue in D Minor">
     </div>
 
     <div class="form-group">
@@ -35,6 +35,21 @@
     <div class="form-group">
       <label for="tags">Tags</label>
       <input type="text" class="form-control" id="tags" name="tags" aria-describedby="tags" placeholder="#rock #guitar #boldaslove">
+    </div>
+
+    <div class="form-group">
+      <label for="title">Album / Compilation</label>
+      <input type="text" class="form-control" id="album" name="album" aria-describedby="title" placeholder="The White Album">
+    </div>
+
+    <div class="form-group">
+      <label for="title">Year</label>
+      <input type="text" class="form-control" id="year" name="year" aria-describedby="title" placeholder="{{ now()->year }}">
+    </div>
+
+    <div class="form-group">
+      <label for="title">Artist</label>
+      <input type="text" class="form-control" id="artist" name="artist" aria-describedby="title" placeholder="Jazzy Jeff">
     </div>
 
     <input type="submit" value=" Save " />

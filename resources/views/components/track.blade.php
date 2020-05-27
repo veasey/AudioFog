@@ -1,7 +1,11 @@
-<li class="playtrack" data-filepath="{{ $filepath }}" data-trackid="{{ $id }}">
+<li class="playtrack" data-filepath="{{ $filepath }}" data-trackid="{{ $id }}" data-album="{{ $album }}" data-artist="{{ $artist }}" data-year="{{ $year }}">
   <div class="row">
     <div class="col">
-      <span class="title">{{ $title }}</span>
+      <span class="title">
+        @if($artist)
+          {{ $artist }} -
+        @endif
+        {{ $title }}</span>
     </div>
     <div class="col">
 

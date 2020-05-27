@@ -38,6 +38,21 @@
         <input type="text" class="form-control" id="tags" name="tags" aria-describedby="tags" placeholder="#rock #guitar #boldaslove" value="{{ $track->getTags() }}">
       </div>
 
+      <div class="form-group">
+        <label for="title">Album / Compilation</label>
+        <input type="text" class="form-control" id="album" name="album" aria-describedby="title" placeholder="The White Album" value="{{ $track->album }}">
+      </div>
+
+      <div class="form-group">
+        <label for="title">Year</label>
+        <input type="text" class="form-control" id="year" name="year" aria-describedby="title" placeholder="{{ now()->year }}" value="{{ $track->year }}">
+      </div>
+
+      <div class="form-group">
+        <label for="title">Artist</label>
+        <input type="text" class="form-control" id="artist" name="artist" aria-describedby="title" placeholder="Jazzy Jeff" value="{{ $track->artist }}">
+      </div>
+
       <button class="btn btn-primary" type="submit">Update</button>
     </form>
 

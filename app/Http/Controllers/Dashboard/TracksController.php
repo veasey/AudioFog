@@ -52,7 +52,10 @@ class TracksController extends Controller
       $track = Track::findOrFail($id);
       $validatedData = $request->validate([
         'title' => 'required',
-        'desc' => 'max:255'
+        'desc' => 'max:255',
+        'year' => 'digits:4|integer|min:1900|max:'.(date('Y')+1),
+        'artist' => 'max:255',
+        'album' => 'max:255'
       ]);
       $track->update($validatedData);
       $track->updateTags($request->tags);
@@ -65,7 +68,10 @@ class TracksController extends Controller
       $validatedData = $request->validate([
         'audiofile' => 'mimes:mp3,wav,mpeg,mpga|required',
         'title' => 'required|unique:track',
-        'desc' => 'max:255'
+        'desc' => 'max:255',
+        'year' => 'digits:4|integer|min:1900|max:'.(date('Y')+1),
+        'artist' => 'max:255',
+        'album' => 'max:255'
       ]);
 
       $id = auth()->user()->id;

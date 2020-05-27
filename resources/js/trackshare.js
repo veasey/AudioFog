@@ -33,6 +33,35 @@ const app = new Vue({
 
 global.$ = global.jQuery = require('jquery');
 
+function trackInfoLoad (track) {
+
+  // clear info
+  $('.song-title').text('');
+  $('.song-album').text('');
+  $('.song-year').text('');
+
+  // toggle jumbotrons
+  $('.jumbotron.welcome').hide();
+  $('.jumbotron.info').show();
+
+  // title
+  var title = track.find('title').text();
+  if (track.data('artist').length()) {
+    title = track.data('artist') + ' - ' + title;
+  }
+  $('.song-title').text(title);
+
+  // album
+  if (track.data('album').length()) {
+    $('.song-album').text(track.data('album'));
+  }
+
+  // year
+  if (track.data('year').length()) {
+    $('.song-year').text(track.data('year'));
+  }
+}
+
 function trackLoad (track) {
 
   $('audio')[0].load();
@@ -53,6 +82,8 @@ function trackPlay (track) {
     trackPlay(track.next());
   });
 
+  trackInfoLoad(track);
+
   trackLoad(track);
   $.ajax({
      type: "POST",
@@ -61,13 +92,6 @@ function trackPlay (track) {
      success: function(msg){
        // change audio source
        audio[0].play();
-
-       // play next track
-       /*
-       audio[0].addEventListener('ended',function(){
-         trackPlay(track.next());
-       });
-       */
      }
   });
 }

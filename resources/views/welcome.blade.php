@@ -1,8 +1,21 @@
 @extends('layouts.player')
 @section('content')
-<div class="jumbotron mt-3">
+<div class="jumbotron mt-3 welcome">
   <h1 class="display-4">Clint Veasey</h1>
   <p class="lead">A collection of noises for your ears</p>
+</div>
+
+<div class="jumbotron mt-3 info">
+  <div class="row">
+    <div class="col-md">
+      <p class="lead song-title"></p>
+      <p class="song-album"></p>
+      <p class="song-year"></p>
+    </div>
+    <div class="col-md">
+      coverart
+    </div>
+  </div>
 </div>
 
 <div class="container">
