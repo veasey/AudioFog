@@ -6,8 +6,6 @@ Share and play audio files for free.
 
 - Homepage
 
-  - play next track in list
-
   - View single track
     - share / embed
     - download
@@ -27,6 +25,8 @@ Share and play audio files for free.
     - Most and Least played
     - Track Length
     - Default: Age
+
+  - visualisation
 
 ## Troubleshooting
 
