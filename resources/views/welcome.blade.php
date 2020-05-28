@@ -13,7 +13,7 @@
       <p class="song-year"></p>
     </div>
     <div class="col-md">
-      coverart
+      <p class="song-desc"></p>
     </div>
   </div>
 </div>

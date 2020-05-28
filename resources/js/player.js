@@ -6,6 +6,7 @@ function trackInfoLoad (track) {
   $('.song-title').text('');
   $('.song-album').text('');
   $('.song-year').text('');
+  $('.song-desc').text('');
 
   // toggle jumbotrons
   $('.jumbotron.welcome').hide();
@@ -26,6 +27,11 @@ function trackInfoLoad (track) {
   // year
   if (track.data('year').length()) {
     $('.song-year').text(track.data('year'));
+  }
+
+  // desc
+  if (track.data('desc').length()) {
+    $('.song-desc').text(track.data('desc'));
   }
 }
 

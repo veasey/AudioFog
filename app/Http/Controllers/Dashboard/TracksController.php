@@ -36,6 +36,9 @@ class TracksController extends Controller
 
       $track = Track::findOrFail($id);
 
+      // detach tags
+      $track->tags()->detach();
+
       // delete from disk
       $id = auth()->user()->id;
       $filepath = "/audiofiles/$id/$track->filename";
@@ -85,10 +88,7 @@ class TracksController extends Controller
       // store track data
       $track = new Track();
       $track->filename = $filename;
-      $track->user_id = $id;
-      $track->title = $request->title;
-      $track->desc = $request->desc;
-      $track->save();
+      $track->save($validatedData);
       $track->updateTags($request->tags);
 
       return redirect('/dashboard/upload')->with('success', "Your track '$track->title' has been uploaded.");

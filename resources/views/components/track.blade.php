@@ -1,17 +1,17 @@
-<li class="playtrack" data-filepath="{{ $filepath }}" data-trackid="{{ $id }}" data-album="{{ $album }}" data-artist="{{ $artist }}" data-year="{{ $year }}">
+<li class="playtrack" data-filepath="{{ $track->getFilepath() }}" data-trackid="{{ $track->id }}" data-album="{{ $track->album }}" data-artist="{{ $track->artist }}" data-year="{{ $track->year }}" data-desc="{{ $track->desc }}">
   <div class="row">
     <div class="col">
       <span class="title">
-        @if($artist)
-          {{ $artist }} -
+        @if($track->artist)
+          {{ $track->artist }} -
         @endif
-        {{ $title }}</span>
+        {{ $track->title }}</span>
     </div>
     <div class="col">
 
       <svg class="bi bi-play" data-toggle="tooltip" data-placement="top" title="Number of plays" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 010 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z" clip-rule="evenodd"/>
-      </svg>{{$plays}}
+      </svg>{{$track->plays}}
 
       <svg data-toggle="tooltip" data-placement="top" title="Share" class="bi bi-box-arrow-up-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" d="M1.5 13A1.5 1.5 0 003 14.5h8a1.5 1.5 0 001.5-1.5V9a.5.5 0 00-1 0v4a.5.5 0 01-.5.5H3a.5.5 0 01-.5-.5V5a.5.5 0 01.5-.5h4a.5.5 0 000-1H3A1.5 1.5 0 001.5 5v8zm7-11a.5.5 0 01.5-.5h5a.5.5 0 01.5.5v5a.5.5 0 01-1 0V2.5H9a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>

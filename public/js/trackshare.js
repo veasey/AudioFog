@@ -49831,18 +49831,18 @@ function trackInfoLoad(track) {
 
   var title = track.find('title').text();
 
-  if (track.data('artist')) {
+  if (track.data('artist').length()) {
     title = track.data('artist') + ' - ' + title;
   }
 
   $('.song-title').text(title); // album
 
-  if (track.data('album')) {
+  if (track.data('album').length()) {
     $('.song-album').text(track.data('album'));
   } // year
 
 
-  if (track.data('year')) {
+  if (track.data('year').length()) {
     $('.song-year').text(track.data('year'));
   }
 }
