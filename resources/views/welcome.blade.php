@@ -1,11 +1,15 @@
 @extends('layouts.player')
 @section('content')
-<div class="jumbotron mt-3 welcome">
-  <h1 class="display-4">Clint Veasey</h1>
-  <p class="lead">A collection of noises for your ears</p>
-</div>
 
 <div class="container">
+
+  <div class="jumbotron mt-3 welcome">
+    <h1 class="display-4">Clint Veasey</h1>
+    <p class="lead">A collection of noises for your ears</p>
+  </div>
+
+  <x-track-info />
+
   <div class="row">
     <div class="col-md">
       <!-- tracks -->

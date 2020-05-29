@@ -9,7 +9,6 @@ function trackInfoLoad (track) {
   $('.song-desc').text('');
 
   // toggle jumbotrons
-  $('.jumbotron.welcome').hide();
   $('.jumbotron.info').show();
 
   // title
@@ -33,6 +32,8 @@ function trackInfoLoad (track) {
 
 function trackLoad (track) {
 
+  trackInfoLoad(track);
+
   $('audio')[0].load();
   $('audio')[0].pause();
   $('audio source').attr('src', track.data('filepath'));
@@ -50,8 +51,6 @@ function trackPlay (track) {
   audio[0].addEventListener('ended',function(){
     trackPlay(track.next());
   });
-
-  trackInfoLoad(track);
 
   trackLoad(track);
   $.ajax({

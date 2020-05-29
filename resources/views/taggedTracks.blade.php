@@ -1,11 +1,15 @@
 @extends('layouts.player')
 @section('content')
-<div class="jumbotron mt-3">
-  <h1 class="display-4">{{$tag}}</h1>
-  <p class="lead">All tracks tagged as <a href="{{route('tag', $tag)}}">{{$tag}}</a></p>
-</div>
 
 <div class="container">
+
+  <div class="jumbotron mt-3">
+    <h1 class="display-4">{{$tag}}</h1>
+    <p class="lead">All tracks tagged as <a href="{{route('tag', $tag)}}">{{$tag}}</a></p>
+  </div>
+
+  <x-track-info />
+
   <div class="row">
     <div class="col-md">
       <!-- tracks -->

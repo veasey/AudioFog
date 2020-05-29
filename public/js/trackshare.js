@@ -49827,16 +49827,9 @@ function trackInfoLoad(track) {
   $('.song-year').text('');
   $('.song-desc').text(''); // toggle jumbotrons
 
-  $('.jumbotron.welcome').hide();
   $('.jumbotron.info').show(); // title
 
-  var title = track.find('.title').text();
-
-  if (track.data('artist')) {
-    title = track.data('artist') + ' - ' + title;
-  }
-
-  $('.song-title').text(title); // album
+  $('.song-title').text(track.find('.title').text()); // album
 
   if (track.data('album')) {
     $('.song-album').text(track.data('album'));
@@ -49854,6 +49847,7 @@ function trackInfoLoad(track) {
 }
 
 function trackLoad(track) {
+  trackInfoLoad(track);
   $('audio')[0].load();
   $('audio')[0].pause();
   $('audio source').attr('src', track.data('filepath'));
@@ -49868,7 +49862,6 @@ function trackPlay(track) {
   audio[0].addEventListener('ended', function () {
     trackPlay(track.next());
   });
-  trackInfoLoad(track);
   trackLoad(track);
   $.ajax({
     type: "POST",
