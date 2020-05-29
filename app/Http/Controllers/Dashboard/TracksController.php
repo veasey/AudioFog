@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Events\TrackDestroyed;
+
 use App\Http\Controllers\Controller;
 use App\Track;
+
 use \Spatie\Tags\Tag;
+
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -33,20 +37,8 @@ class TracksController extends Controller
     }
 
     public function destroy($id) {
-
       $track = Track::findOrFail($id);
-
-      // detach tags
-      $track->tags()->detach();
-
-      // delete from disk
-      $id = auth()->user()->id;
-      $filepath = "/audiofiles/$id/$track->filename";
-      Storage::delete($filepath);
-
-      // delete from DB
-      $track->delete();
-
+      event(new TrackDestroyed($track));
       return redirect('/dashboard/tracks')->with('success', "Track $track->title successfully deleted");
     }
 
@@ -72,7 +64,7 @@ class TracksController extends Controller
         'audiofile' => 'mimes:mp3,wav,mpeg,mpga|required',
         'title' => 'required|unique:track',
         'desc' => 'max:255',
-        'year' => 'digits:4|integer|min:1900|max:'.(date('Y')+1),
+        'year' => 'nullable|digits:4|integer|min:1900|max:'.(date('Y')+1),
         'artist' => 'max:255',
         'album' => 'max:255'
       ]);
@@ -87,7 +79,17 @@ class TracksController extends Controller
 
       // store track data
       $track = new Track();
+
       $track->filename = $filename;
+      $track->user_id = $id;
+
+      $track->user_id = $id;
+      $track->title = $request->title;
+      $track->year = $request->year;
+      $track->artist = $request->artist;
+      $track->album = $request->album;
+
+
       $track->save($validatedData);
       $track->updateTags($request->tags);
 
