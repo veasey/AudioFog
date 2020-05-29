@@ -3,8 +3,6 @@
 Share and play audio files for free.
 
 ## Future Features
-
-- when deleting tracks, also remove any orphaned tags
 - Additional Track Info
   - share / embed button
   - download utton

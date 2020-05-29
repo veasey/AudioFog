@@ -46,24 +46,20 @@ function trackInfoLoad (track) {
   $('.jumbotron.info').show();
 
   // title
-  var title = track.find('title').text();
-  if (track.data('artist').length()) {
-    title = track.data('artist') + ' - ' + title;
-  }
-  $('.song-title').text(title);
+  $('.song-title').text(track.find('.title').text());
 
   // album
-  if (track.data('album').length()) {
+  if (track.data('album')) {
     $('.song-album').text(track.data('album'));
   }
 
   // year
-  if (track.data('year').length()) {
+  if (track.data('year')) {
     $('.song-year').text(track.data('year'));
   }
 
   // desc
-  if (track.data('desc').length()) {
+  if (track.data('desc')) {
     $('.song-desc').text(track.data('desc'));
   }
 }

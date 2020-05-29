@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{!! csrf_token() !!}">
-        
+
         <title>Audio Fog</title>
 
         <!-- Fonts -->
@@ -61,6 +61,20 @@
 
 
       <div class="container">
+
+        <div class="jumbotron mt-3 info">
+          <div class="row">
+            <div class="col-md">
+              <p class="lead song-title"></p>
+              <p class="song-album"></p>
+              <p class="song-year"></p>
+            </div>
+            <div class="col-md">
+              <p class="song-desc"></p>
+            </div>
+          </div>
+        </div>
+
         @yield('content')
       </div>
     </div>
