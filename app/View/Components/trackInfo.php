@@ -24,16 +24,13 @@ class trackInfo extends Component
     public function render()
     {
         return <<<'blade'
-<div class="jumbotron mt-3 info">
-  <div class="row">
-    <div class="col-md">
-      <p class="lead song-title"></p>
-      <p class="song-album"></p>
-      <p class="song-year"></p>
-    </div>
-    <div class="col-md">
-      <p class="song-desc"></p>
-    </div>
+<div class="row text-white">
+  <div class="col-md">
+    <p class="song-desc"></p>
+  </div>
+  <div class="col-md">
+    <p class="song-album"></p>
+    <p class="song-year"></p>
   </div>
 </div>
 blade;

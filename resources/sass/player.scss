@@ -1,16 +1,15 @@
-$breakpoint-phone: 480px;
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
 
-// Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: $footer-height;
+  @media (max-width: $breakpoint-phone) {
+    margin-bottom: $footer-height * 2;
+  }
+}
+
 
 .jumbotron.info {
   display: none;
@@ -54,7 +53,8 @@ ul.track {
 }
 
 .footer {
-  position: absolute;
+  background: lightgray;
+  position: fixed;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */

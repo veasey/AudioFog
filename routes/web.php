@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PlayerController@welcome')->name('welcome');
-Route::get('/tag/{tag}', 'PlayerController@taggedTracks')->name('tag');
+Route::get('/tag/{tag}', 'PlayerController@getTagged')->name('tag');
+Route::get('/track/{id}', 'PlayerController@getTrack')->name('track');
 Route::post('/track/addplay', 'PlayerController@addPlay');
 
 Auth::routes();

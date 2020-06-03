@@ -7,8 +7,4 @@ mix.scripts([
  .js('resources/js/trackshare.js', 'public/js');
 
 mix.sass('resources/sass/app.scss', 'public/css/')
-.sass('resources/sass/player.scss', 'public/css/')
-.styles([
-  'public/css/app.css',
-  'public/css/player.css'
-], 'public/css/style.css');
+.sass('resources/sass/player.scss', 'public/css/');

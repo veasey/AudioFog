@@ -8,8 +8,6 @@
     <p class="lead">All tracks tagged as <a href="{{route('tag', $tag)}}">{{$tag}}</a></p>
   </div>
 
-  <x-track-info />
-
   <div class="row">
     <div class="col-md">
       <!-- tracks -->

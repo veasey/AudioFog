@@ -20,6 +20,11 @@ Share and play audio files for free.
   - change song order
   - cover art
 
+- design
+  - player in footer bar on bottom, all inline
+  - style own player so looks same on all browsers
+  
+
 ## Troubleshooting
 
 ### File Storage

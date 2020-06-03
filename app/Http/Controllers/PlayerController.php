@@ -19,7 +19,7 @@ class PlayerController extends Controller
     }
 
     // return tracks with tag
-    public function taggedTracks($tag) {
+    public function getTagged($tag) {
 
       if (!Tag::findFromString($tag)) {
         abort(404);
@@ -29,6 +29,19 @@ class PlayerController extends Controller
         'tracks' => Track::withAnyTags([$tag])->get(),
         'tags'   => Tag::inRandomOrder()->get(),
         'tag'    => $tag
+      ];
+      return view('taggedTracks')->with($viewData);
+    }
+
+    // show a single track
+    public function getTrack($id) {
+      if (!$track = Track::findOrFail($id)) {
+        abort(404);
+      }
+
+      $viewData = [
+        'track' => $track,
+        'tags'   => Tag::inRandomOrder()->get()
       ];
       return view('taggedTracks')->with($viewData);
     }
