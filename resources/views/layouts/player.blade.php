@@ -41,7 +41,9 @@
        </header>
 
        <!-- tracks -->
-       @yield('content')
+       <div class="container mt-4">
+         @yield('content')
+       </div>
 
        <!-- info -->
        <div class="container">

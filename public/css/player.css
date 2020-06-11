@@ -10970,6 +10970,11 @@ body {
   background: #6cb2eb;
 }
 
+ul {
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+}
+
 @media (min-width: 480px) {
   ul.track {
     -moz-column-count: 4;
