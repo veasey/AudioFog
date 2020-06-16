@@ -3,6 +3,10 @@
 Share and play audio files for free.
 
 ## Future Features
+
+- fix next and prev when already playing
+- add scrubber
+
 - Additional Track Info
   - share / embed button
   - download utton
@@ -22,8 +26,7 @@ Share and play audio files for free.
 
 - design
   - player in footer bar on bottom, all inline
-  - style own player so looks same on all browsers
-  
+
 
 ## Troubleshooting
 
