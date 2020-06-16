@@ -49860,7 +49860,7 @@ function trackPlay(track) {
   var trackid = track.data('trackid'); // play next track
 
   audio[0].addEventListener('ended', function () {
-    trackPlay(track.next());
+    trackPlayNext();
   });
   trackLoad(track);
   $.ajax({
@@ -49872,9 +49872,25 @@ function trackPlay(track) {
     url: '/track/addplay',
     success: function success(msg) {
       // change audio source
-      audio[0].play();
+      audio[0].play(); // swap player btns
+
+      $('.player-btn-pause').show();
+      $('.player-btn-play').hide();
     }
   });
+}
+
+function trackPlayNext() {
+  if ($('.player-btn-repeat').hasClass('selected')) {
+    // loop track
+    trackPlay($('.playtrack.playing'));
+  } else if ($('.player-btn-shuffle').hasClass('selected')) {
+    // shuffle
+    trackPlay($('.playtrack').eq(Math.floor(Math.random() * $('.playtrack').count())));
+  } else {
+    // play next
+    trackPlay($('.playtrack.playing').next());
+  }
 }
 
 $(document).ready(function () {
@@ -49883,10 +49899,55 @@ $(document).ready(function () {
 
   $('.playtrack').click(function () {
     trackPlay($(this));
-  }); // init tooltips
+  }); // player btns
 
-  $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
+  $('.player-btn-pause').click(function () {
+    $('audio')[0].pause();
+    $('.player-btn-pause').hide();
+    $('.player-btn-play').show();
+  });
+  $('.player-btn-play').click(function () {
+    $('audio')[0].play();
+    $('.player-btn-pause').show();
+    $('.player-btn-play').hide();
+  });
+  $('.player-btn-back').click(function () {
+    var currentTrack = $('.playtrack.playing');
+
+    if (!currentTrack.is(':first-child')) {
+      currentTrack.removeClass('playing').prev().addClass('playing');
+    }
+
+    if ($('.player-btn-play').is(':visible')) {
+      trackPlay($('.playtrack.playing'));
+    } else {
+      trackLoad($('.playtrack.playing'));
+    }
+  });
+  $('.player-btn-next').click(function () {
+    var currentTrack = $('.playtrack.playing');
+
+    if (!currentTrack.is(':last-child')) {
+      currentTrack.removeClass('playing').next().addClass('playing');
+    }
+
+    if ($('.player-btn-play').is(':visible')) {
+      trackPlay($('.playtrack.playing'));
+    } else {
+      trackLoad($('.playtrack.playing'));
+    }
+  });
+  $('.player-btn-repeat').click(function () {
+    $('.player-btn-shuffle').removeClass('selected');
+    $(this).toggleClass('selected');
+  });
+  $('.player-btn-shuffle').click(function () {
+    $('.player-btn-repeat').removeClass('selected');
+    $(this).toggleClass('selected');
+  });
+  $('.player-btn-download').click(function (e) {
+    e.preventDefault();
+    window.location.href = $('audio source').attr('src');
   });
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))

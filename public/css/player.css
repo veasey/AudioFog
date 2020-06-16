@@ -10997,3 +10997,41 @@ ul {
   /* Vertically center the text there */
 }
 
+/**
+ The Audio element and controls
+ **/
+
+audio {
+  display: none;
+}
+
+.player {
+  font-size: 2em;
+  margin: 0 0.25em;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+}
+
+.player svg {
+  color: #ddd;
+}
+
+.player svg.player-btn-pause {
+  display: none;
+}
+
+.player svg:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.player svg.selected {
+  color: #f6993f;
+}
+
