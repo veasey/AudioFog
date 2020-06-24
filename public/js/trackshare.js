@@ -49856,11 +49856,25 @@ function trackLoad(track) {
 }
 
 function trackPlay(track) {
-  var audio = $('audio');
-  var trackid = track.data('trackid'); // play next track
+  var audio = $('audio')[0];
+  var trackid = track.data('trackid'); // reset scrubber
 
-  audio[0].addEventListener('ended', function () {
+  audio.currentTime = 0;
+  curtime = parseInt(audio.currentTime, 10);
+  $(".player-ctrl-seek").attr("value", curtime); // listeners
+
+  audio.addEventListener('ended', function () {
     trackPlayNext();
+  }); // scrubber
+
+  audio.addEventListener('timeupdate', function () {
+    curtime = parseInt(audio.currentTime, 10);
+    $(".player-ctrl-seek").attr("value", curtime);
+  });
+  $(".player-ctrl-seek").bind("change", function () {
+    var audio = $('audio')[0];
+    audio.currentTime = $(this).val();
+    $(".player-ctrl-seek").attr("max", audio.duration);
   });
   trackLoad(track);
   $.ajax({
@@ -49872,7 +49886,7 @@ function trackPlay(track) {
     url: '/track/addplay',
     success: function success(msg) {
       // change audio source
-      audio[0].play(); // swap player btns
+      audio.play(); // swap player btns
 
       $('.player-btn-pause').show();
       $('.player-btn-play').hide();

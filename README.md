@@ -4,8 +4,10 @@ Share and play audio files for free.
 
 ## Future Features
 
-- fix next and prev when already playing
-- add scrubber
+- scrubber not going to beginning on new track
+- fix scrubber styling
+- song name to be vertically aligned
+- test on firefox (as does not support mp3?)
 
 - Additional Track Info
   - share / embed button

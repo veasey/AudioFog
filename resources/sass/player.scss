@@ -102,4 +102,25 @@ audio {
     }
 
   }
+
+  // scrubber
+  input[type="range"] {
+    height: 28px;
+    -webkit-appearance: none;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-color: #343a40;
+  }
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border:1px solid #ddd;
+
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: $orange;
+  }
 }

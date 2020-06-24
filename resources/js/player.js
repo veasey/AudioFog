@@ -44,13 +44,29 @@ function trackLoad (track) {
 
 function trackPlay (track) {
 
-  var audio = $('audio');
+  var audio = $('audio')[0];
   var trackid = track.data('trackid');
 
-  // play next track
-  audio[0].addEventListener('ended',function(){
+  // reset scrubber
+  audio.currentTime = 0;
+  $(".player-ctrl-seek").attr("value", 0).attr("max", 9999);
+
+  // listeners
+  audio.addEventListener('ended',function(){
     trackPlayNext();
   });
+
+  // scrubber
+  audio.addEventListener('timeupdate',function () {
+    curtime = parseInt(audio.currentTime, 10);
+    $(".player-ctrl-seek").attr("value", curtime);
+  });
+  $(".player-ctrl-seek").bind("change", function() {
+    var audio = $('audio')[0];
+    audio.currentTime = $(this).val();
+    $(".player-ctrl-seek").attr("max", audio.duration);
+  });
+
 
   trackLoad(track);
   $.ajax({
@@ -59,7 +75,7 @@ function trackPlay (track) {
      url: '/track/addplay',
      success: function(msg){
        // change audio source
-       audio[0].play();
+       audio.play();
        // swap player btns
        $('.player-btn-pause').show();
        $('.player-btn-play').hide();
@@ -147,6 +163,4 @@ $( document ).ready(function() {
     e.preventDefault();
     window.location.href = $('audio source').attr('src');
   });
-
-
 });
