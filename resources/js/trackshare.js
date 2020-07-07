@@ -33,47 +33,72 @@ const app = new Vue({
 
 global.$ = global.jQuery = require('jquery');
 
-function trackInfoLoad (track) {
+class Player {
 
-  // clear info
-  $('.song-title').text('');
-  $('.song-album').text('');
-  $('.song-year').text('');
-  $('.song-desc').text('');
+  constructor() {
 
-  // toggle jumbotrons
-  $('.jumbotron.info').show();
+    this.HTMLelement = $('audio')[0];
 
-  // title
-  $('.song-title').text(track.find('.title').text());
-
-  // album
-  if (track.data('album')) {
-    $('.song-album').text(track.data('album'));
+    // load first track
+    this.loadTrack($('.playtrack').first());
   }
 
-  // year
-  if (track.data('year')) {
-    $('.song-year').text(track.data('year'));
+  loadTrack(track) {
+
+    this.track = track;
+
+    // prepare HTML audio element
+    this.HTMLelement.load();
+    this.HTMLelement.pause();
+    $('audio source').attr('src', this.track.data('filepath'));
+
+    // highlight playing track
+    $('.playtrack').removeClass('playing');
+    this.track.addClass('playing');
+
+    // reset scrubber
+    this.HTMLelement.currentTime = 0;
+    $(".player-ctrl-seek").attr("value", 0).attr("max", this.HTMLelement.duration);
+
+    // listeners
+    this.HTMLelement.addEventListener('ended',function(){
+      this.playNext();
+    });
+
+    // update info
+    this.updateTrackInfo();
   }
 
-  // desc
-  if (track.data('desc')) {
-    $('.song-desc').text(track.data('desc'));
+  playNext() {
+    loadTrack(this.track.next());
+    this.HTMLelement.play();
   }
-}
 
-function trackLoad (track) {
+  updateTrackInfo() {
 
-  trackInfoLoad(track);
+    // clear all previous track info
+    $('.song-title, .song-album, .song-year, .song-desc').text('');
 
-  $('audio')[0].load();
-  $('audio')[0].pause();
-  $('audio source').attr('src', track.data('filepath'));
+    // display track title
+    $('.song-title').text(this.track.find('.title').text());
+    // display track album
+    if (this.track.data('album')) {
+      $('.song-album').text(this.track.data('album'));
+    }
+    // display track year
+    if (this.track.data('year')) {
+      $('.song-year').text(this.track.data('year'));
+    }
+    // display track desc
+    if (this.track.data('desc')) {
+      $('.song-desc').text(this.track.data('desc'));
+    }
+  }
 
-  $('.playtrack').removeClass('playing');
-  track.addClass('playing');
-}
+};
+
+
+/*
 
 function trackPlay (track) {
 
@@ -82,7 +107,7 @@ function trackPlay (track) {
 
   // reset scrubber
   audio.currentTime = 0;
-  $(".player-ctrl-seek").attr("value", 0).attr("max", 9999);
+  $(".player-ctrl-seek").attr("value", 0).attr("max", audio.duration);
 
   // listeners
   audio.addEventListener('ended',function(){
@@ -130,29 +155,33 @@ function trackPlayNext() {
   }
 
 }
-
+*/
 $( document ).ready(function() {
 
-  // autoload first track
-  trackLoad($('.playtrack').first());
+  player = new Player();
 
   // clickevent to play track
   $('.playtrack').click(function() {
-    trackPlay($(this));
+    player.loadTrack($(this));
+    $('.player-btn-pause').show();
+    $('.player-btn-play').hide();
+    player.HTMLelement.play();
   });
 
   // player btns
   $('.player-btn-pause').click(function(){
-    $('audio')[0].pause();
+    player.HTMLelement.pause();
     $('.player-btn-pause').hide();
     $('.player-btn-play').show();
   });
 
   $('.player-btn-play').click(function(){
-    $('audio')[0].play();
+    player.HTMLelement.play();
     $('.player-btn-pause').show();
     $('.player-btn-play').hide();
   });
+
+  /*
 
   $('.player-btn-back').click(function() {
 
@@ -196,4 +225,6 @@ $( document ).ready(function() {
     e.preventDefault();
     window.location.href = $('audio source').attr('src');
   });
+
+  */
 });

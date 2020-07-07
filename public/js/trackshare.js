@@ -49790,7 +49790,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {/**
+/* WEBPACK VAR INJECTION */(function(global) {function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+/**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
@@ -49820,149 +49826,185 @@ var app = new Vue({
 });
 global.$ = global.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-function trackInfoLoad(track) {
-  // clear info
-  $('.song-title').text('');
-  $('.song-album').text('');
-  $('.song-year').text('');
-  $('.song-desc').text(''); // toggle jumbotrons
+var Player = /*#__PURE__*/function () {
+  function Player() {
+    _classCallCheck(this, Player);
 
-  $('.jumbotron.info').show(); // title
+    this.HTMLelement = $('audio')[0]; // load first track
 
-  $('.song-title').text(track.find('.title').text()); // album
-
-  if (track.data('album')) {
-    $('.song-album').text(track.data('album'));
-  } // year
-
-
-  if (track.data('year')) {
-    $('.song-year').text(track.data('year'));
-  } // desc
-
-
-  if (track.data('desc')) {
-    $('.song-desc').text(track.data('desc'));
+    this.loadTrack($('.playtrack').first());
   }
-}
 
-function trackLoad(track) {
-  trackInfoLoad(track);
-  $('audio')[0].load();
-  $('audio')[0].pause();
-  $('audio source').attr('src', track.data('filepath'));
-  $('.playtrack').removeClass('playing');
-  track.addClass('playing');
-}
+  _createClass(Player, [{
+    key: "loadTrack",
+    value: function loadTrack(track) {
+      this.track = track; // prepare HTML audio element
 
-function trackPlay(track) {
+      this.HTMLelement.load();
+      this.HTMLelement.pause();
+      $('audio source').attr('src', this.track.data('filepath')); // highlight playing track
+
+      $('.playtrack').removeClass('playing');
+      this.track.addClass('playing'); // reset scrubber
+
+      this.HTMLelement.currentTime = 0;
+      $(".player-ctrl-seek").attr("value", 0).attr("max", this.HTMLelement.duration); // listeners
+
+      this.HTMLelement.addEventListener('ended', function () {
+        this.playNext();
+      }); // update info
+
+      this.updateTrackInfo();
+    }
+  }, {
+    key: "playNext",
+    value: function playNext() {
+      loadTrack(this.track.next());
+      this.HTMLelement.play();
+    }
+  }, {
+    key: "updateTrackInfo",
+    value: function updateTrackInfo() {
+      // clear all previous track info
+      $('.song-title, .song-album, .song-year, .song-desc').text(''); // display track title
+
+      $('.song-title').text(this.track.find('.title').text()); // display track album
+
+      if (this.track.data('album')) {
+        $('.song-album').text(this.track.data('album'));
+      } // display track year
+
+
+      if (this.track.data('year')) {
+        $('.song-year').text(this.track.data('year'));
+      } // display track desc
+
+
+      if (this.track.data('desc')) {
+        $('.song-desc').text(this.track.data('desc'));
+      }
+    }
+  }]);
+
+  return Player;
+}();
+
+;
+/*
+
+function trackPlay (track) {
+
   var audio = $('audio')[0];
-  var trackid = track.data('trackid'); // reset scrubber
+  var trackid = track.data('trackid');
 
+  // reset scrubber
   audio.currentTime = 0;
-  curtime = parseInt(audio.currentTime, 10);
-  $(".player-ctrl-seek").attr("value", curtime); // listeners
+  $(".player-ctrl-seek").attr("value", 0).attr("max", audio.duration);
 
-  audio.addEventListener('ended', function () {
+  // listeners
+  audio.addEventListener('ended',function(){
     trackPlayNext();
-  }); // scrubber
+  });
 
-  audio.addEventListener('timeupdate', function () {
+  // scrubber
+  audio.addEventListener('timeupdate',function () {
     curtime = parseInt(audio.currentTime, 10);
     $(".player-ctrl-seek").attr("value", curtime);
   });
-  $(".player-ctrl-seek").bind("change", function () {
+  $(".player-ctrl-seek").bind("change", function() {
     var audio = $('audio')[0];
     audio.currentTime = $(this).val();
     $(".player-ctrl-seek").attr("max", audio.duration);
   });
+
+
   trackLoad(track);
   $.ajax({
-    type: "POST",
-    data: {
-      "_token": $('meta[name="csrf-token"]').attr('content'),
-      "id": trackid
-    },
-    url: '/track/addplay',
-    success: function success(msg) {
-      // change audio source
-      audio.play(); // swap player btns
-
-      $('.player-btn-pause').show();
-      $('.player-btn-play').hide();
-    }
+     type: "POST",
+     data: {"_token": $('meta[name="csrf-token"]').attr('content'),"id": trackid},
+     url: '/track/addplay',
+     success: function(msg){
+       // change audio source
+       audio.play();
+       // swap player btns
+       $('.player-btn-pause').show();
+       $('.player-btn-play').hide();
+     }
   });
 }
 
 function trackPlayNext() {
+
   if ($('.player-btn-repeat').hasClass('selected')) {
     // loop track
     trackPlay($('.playtrack.playing'));
   } else if ($('.player-btn-shuffle').hasClass('selected')) {
     // shuffle
-    trackPlay($('.playtrack').eq(Math.floor(Math.random() * $('.playtrack').count())));
+    trackPlay($('.playtrack').eq(Math.floor(Math.random()*$('.playtrack').count())));
   } else {
     // play next
     trackPlay($('.playtrack.playing').next());
   }
+
 }
+*/
 
 $(document).ready(function () {
-  // autoload first track
-  trackLoad($('.playtrack').first()); // clickevent to play track
+  player = new Player(); // clickevent to play track
 
   $('.playtrack').click(function () {
-    trackPlay($(this));
+    player.loadTrack($(this));
+    $('.player-btn-pause').show();
+    $('.player-btn-play').hide();
+    player.HTMLelement.play();
   }); // player btns
 
   $('.player-btn-pause').click(function () {
-    $('audio')[0].pause();
+    player.HTMLelement.pause();
     $('.player-btn-pause').hide();
     $('.player-btn-play').show();
   });
   $('.player-btn-play').click(function () {
-    $('audio')[0].play();
+    player.HTMLelement.play();
     $('.player-btn-pause').show();
     $('.player-btn-play').hide();
   });
-  $('.player-btn-back').click(function () {
-    var currentTrack = $('.playtrack.playing');
-
+  /*
+    $('.player-btn-back').click(function() {
+      var currentTrack = $('.playtrack.playing');
     if (!currentTrack.is(':first-child')) {
       currentTrack.removeClass('playing').prev().addClass('playing');
     }
-
-    if ($('.player-btn-play').is(':visible')) {
+      if ($('.player-btn-play').is(':visible')) {
       trackPlay($('.playtrack.playing'));
     } else {
       trackLoad($('.playtrack.playing'));
     }
   });
-  $('.player-btn-next').click(function () {
-    var currentTrack = $('.playtrack.playing');
-
+    $('.player-btn-next').click(function() {
+      var currentTrack = $('.playtrack.playing');
     if (!currentTrack.is(':last-child')) {
       currentTrack.removeClass('playing').next().addClass('playing');
     }
-
-    if ($('.player-btn-play').is(':visible')) {
+      if ($('.player-btn-play').is(':visible')) {
       trackPlay($('.playtrack.playing'));
     } else {
       trackLoad($('.playtrack.playing'));
     }
   });
-  $('.player-btn-repeat').click(function () {
+    $('.player-btn-repeat').click(function() {
     $('.player-btn-shuffle').removeClass('selected');
     $(this).toggleClass('selected');
   });
-  $('.player-btn-shuffle').click(function () {
+    $('.player-btn-shuffle').click(function() {
     $('.player-btn-repeat').removeClass('selected');
     $(this).toggleClass('selected');
   });
-  $('.player-btn-download').click(function (e) {
+    $('.player-btn-download').click(function(e) {
     e.preventDefault();
     window.location.href = $('audio source').attr('src');
   });
+    */
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
