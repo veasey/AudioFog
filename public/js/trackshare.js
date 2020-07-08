@@ -49830,7 +49830,10 @@ var Player = /*#__PURE__*/function () {
   function Player() {
     _classCallCheck(this, Player);
 
-    this.HTMLelement = $('audio')[0]; // load first track
+    this.HTMLelement = $('audio')[0]; // listeners
+
+    this.HTMLelement.addEventListener('ended', function () {// this.playNext();
+    }); // load first track
 
     this.loadTrack($('.playtrack').first());
   }
@@ -49838,29 +49841,46 @@ var Player = /*#__PURE__*/function () {
   _createClass(Player, [{
     key: "loadTrack",
     value: function loadTrack(track) {
-      this.track = track; // prepare HTML audio element
-
-      this.HTMLelement.load();
-      this.HTMLelement.pause();
-      $('audio source').attr('src', this.track.data('filepath')); // highlight playing track
+      this.track = track; // highlight playing track
 
       $('.playtrack').removeClass('playing');
-      this.track.addClass('playing'); // reset scrubber
+      this.track.addClass('playing'); // prepare HTML audio element
+
+      $('audio source').attr('src', this.track.data('filepath'));
+      this.HTMLelement.load();
+      this.HTMLelement.pause(); // reset scrubber
 
       this.HTMLelement.currentTime = 0;
-      $(".player-ctrl-seek").attr("value", 0).attr("max", this.HTMLelement.duration); // listeners
-
-      this.HTMLelement.addEventListener('ended', function () {
-        this.playNext();
-      }); // update info
+      $(".player-ctrl-seek").attr("value", 0).attr("max", this.HTMLelement.duration); // update info
 
       this.updateTrackInfo();
     }
   }, {
     key: "playNext",
     value: function playNext() {
-      loadTrack(this.track.next());
-      this.HTMLelement.play();
+      var next = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+      if (!$('.player-btn-repeat').hasClass('selected')) {
+        if ($('.player-btn-shuffle').hasClass('selected')) {
+          // random track
+          this.track.removeClass('playing');
+          $('.playtrack').eq(Math.floor(Math.random() * $('.playtrack').length)).addClass('playing');
+        } else {
+          if (next && !this.track.is(':first-child')) {
+            // next track
+            this.track.removeClass('playing').next().addClass('playing');
+          } else if (!this.track.is(':last-child')) {
+            // previous track
+            this.track.removeClass('playing').prev().addClass('playing');
+          }
+        }
+      }
+
+      this.loadTrack($('.playtrack.playing'));
+
+      if ($('.player-btn-play').is(':visible')) {
+        this.HTMLelement.play();
+      }
     }
   }, {
     key: "updateTrackInfo",
@@ -49890,67 +49910,8 @@ var Player = /*#__PURE__*/function () {
 }();
 
 ;
-/*
-
-function trackPlay (track) {
-
-  var audio = $('audio')[0];
-  var trackid = track.data('trackid');
-
-  // reset scrubber
-  audio.currentTime = 0;
-  $(".player-ctrl-seek").attr("value", 0).attr("max", audio.duration);
-
-  // listeners
-  audio.addEventListener('ended',function(){
-    trackPlayNext();
-  });
-
-  // scrubber
-  audio.addEventListener('timeupdate',function () {
-    curtime = parseInt(audio.currentTime, 10);
-    $(".player-ctrl-seek").attr("value", curtime);
-  });
-  $(".player-ctrl-seek").bind("change", function() {
-    var audio = $('audio')[0];
-    audio.currentTime = $(this).val();
-    $(".player-ctrl-seek").attr("max", audio.duration);
-  });
-
-
-  trackLoad(track);
-  $.ajax({
-     type: "POST",
-     data: {"_token": $('meta[name="csrf-token"]').attr('content'),"id": trackid},
-     url: '/track/addplay',
-     success: function(msg){
-       // change audio source
-       audio.play();
-       // swap player btns
-       $('.player-btn-pause').show();
-       $('.player-btn-play').hide();
-     }
-  });
-}
-
-function trackPlayNext() {
-
-  if ($('.player-btn-repeat').hasClass('selected')) {
-    // loop track
-    trackPlay($('.playtrack.playing'));
-  } else if ($('.player-btn-shuffle').hasClass('selected')) {
-    // shuffle
-    trackPlay($('.playtrack').eq(Math.floor(Math.random()*$('.playtrack').count())));
-  } else {
-    // play next
-    trackPlay($('.playtrack.playing').next());
-  }
-
-}
-*/
-
 $(document).ready(function () {
-  player = new Player(); // clickevent to play track
+  player = new Player(); // click track name event
 
   $('.playtrack').click(function () {
     player.loadTrack($(this));
@@ -49960,51 +49921,29 @@ $(document).ready(function () {
   }); // player btns
 
   $('.player-btn-pause').click(function () {
-    player.HTMLelement.pause();
     $('.player-btn-pause').hide();
     $('.player-btn-play').show();
+    player.HTMLelement.pause();
   });
   $('.player-btn-play').click(function () {
-    player.HTMLelement.play();
     $('.player-btn-pause').show();
     $('.player-btn-play').hide();
+    player.HTMLelement.play();
   });
-  /*
-    $('.player-btn-back').click(function() {
-      var currentTrack = $('.playtrack.playing');
-    if (!currentTrack.is(':first-child')) {
-      currentTrack.removeClass('playing').prev().addClass('playing');
-    }
-      if ($('.player-btn-play').is(':visible')) {
-      trackPlay($('.playtrack.playing'));
-    } else {
-      trackLoad($('.playtrack.playing'));
-    }
-  });
-    $('.player-btn-next').click(function() {
-      var currentTrack = $('.playtrack.playing');
-    if (!currentTrack.is(':last-child')) {
-      currentTrack.removeClass('playing').next().addClass('playing');
-    }
-      if ($('.player-btn-play').is(':visible')) {
-      trackPlay($('.playtrack.playing'));
-    } else {
-      trackLoad($('.playtrack.playing'));
-    }
-  });
-    $('.player-btn-repeat').click(function() {
+  $('.player-btn-back').click(player.playNext());
+  $('.player-btn-next').click(player.playNext(false));
+  $('.player-btn-repeat').click(function () {
     $('.player-btn-shuffle').removeClass('selected');
     $(this).toggleClass('selected');
   });
-    $('.player-btn-shuffle').click(function() {
+  $('.player-btn-shuffle').click(function () {
     $('.player-btn-repeat').removeClass('selected');
     $(this).toggleClass('selected');
   });
-    $('.player-btn-download').click(function(e) {
+  $('.player-btn-download').click(function (e) {
     e.preventDefault();
     window.location.href = $('audio source').attr('src');
   });
-    */
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
