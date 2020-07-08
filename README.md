@@ -4,6 +4,10 @@ Share and play audio files for free.
 
 ## Future Features
 
+- why does track play immediately?
+- load() interrupted error
+- scrubber broken
+
 - scrubber not going to beginning on new track
 - fix scrubber styling
 - song name to be vertically aligned
