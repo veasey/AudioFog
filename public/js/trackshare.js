@@ -49830,35 +49830,58 @@ var Player = /*#__PURE__*/function () {
   function Player() {
     _classCallCheck(this, Player);
 
-    this.HTMLelement = $('audio')[0]; // listeners
+    this.HTMLelement = $('audio')[0];
 
-    this.HTMLelement.addEventListener('ended', function () {// this.playNext();
-    }); // load first track
+    this.HTMLelement.onended = function () {// this.playNext();
+    }; // scrubber on change
 
-    this.loadTrack($('.playtrack').first());
+
+    $('.player-ctrl-seek').on("change", function (newValue) {
+      $('audio')[0].currentTime = newValue;
+    });
   }
+  /**
+   * prepare track so we can play it
+   */
+
 
   _createClass(Player, [{
     key: "loadTrack",
     value: function loadTrack(track) {
-      this.track = track; // highlight playing track
-
       $('.playtrack').removeClass('playing');
-      this.track.addClass('playing'); // prepare HTML audio element
+      this.track = track.addClass('playing'); // prepare HTML audio element
 
-      $('audio source').attr('src', this.track.data('filepath'));
+      $('audio source').attr('src', track.data('filepath'));
       this.HTMLelement.load();
       this.HTMLelement.pause(); // reset scrubber
+      // @hacks here be hacks
 
       this.HTMLelement.currentTime = 0;
-      $(".player-ctrl-seek").attr("value", 0).attr("max", this.HTMLelement.duration); // update info
+      $('.player-ctrl-seek').attr('value', 0);
+      $('.player-ctrl-seek').attr('max', $('audio')[0].duration);
+      this.HTMLelement.addEventListener('timeupdate', function () {
+        $('.player-ctrl-seek').attr('value', parseInt($('audio')[0].currentTime, 10));
+      }); // update info
 
       this.updateTrackInfo();
     }
+    /**
+     * play next track
+     */
+
   }, {
     key: "playNext",
     value: function playNext() {
       var next = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      console.log('play next 3'); // debug
+      // why is this method being run before onEnded should be triggered?
+
+      if (!this.track) {
+        console.log('why');
+      }
+
+      console.log('good');
+      return false;
 
       if (!$('.player-btn-repeat').hasClass('selected')) {
         if ($('.player-btn-shuffle').hasClass('selected')) {
@@ -49878,10 +49901,14 @@ var Player = /*#__PURE__*/function () {
 
       this.loadTrack($('.playtrack.playing'));
 
-      if ($('.player-btn-play').is(':visible')) {
+      if ($('.player-btn-pause').is(':visible')) {
         this.HTMLelement.play();
       }
     }
+    /**
+     * update meta data in header
+     */
+
   }, {
     key: "updateTrackInfo",
     value: function updateTrackInfo() {
@@ -49911,14 +49938,7 @@ var Player = /*#__PURE__*/function () {
 
 ;
 $(document).ready(function () {
-  player = new Player(); // click track name event
-
-  $('.playtrack').click(function () {
-    player.loadTrack($(this));
-    $('.player-btn-pause').show();
-    $('.player-btn-play').hide();
-    player.HTMLelement.play();
-  }); // player btns
+  player = new Player(); // player btns
 
   $('.player-btn-pause').click(function () {
     $('.player-btn-pause').hide();
@@ -49943,7 +49963,17 @@ $(document).ready(function () {
   $('.player-btn-download').click(function (e) {
     e.preventDefault();
     window.location.href = $('audio source').attr('src');
-  });
+  }); // click track name event
+
+  $('.playtrack').click(function () {
+    player.loadTrack($(this));
+    $('.player-btn-pause').show();
+    $('.player-btn-play').hide();
+    player.HTMLelement.play();
+  }); // load first track
+
+  console.log('load first track');
+  player.loadTrack($('.playtrack').first());
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 

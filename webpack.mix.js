@@ -2,6 +2,7 @@ const mix = require('laravel-mix');
 
 mix.scripts([
     'resources/js/app.js',
+    'resources/js/classes/player.js',
     'resources/js/player.js'
  ], 'resources/js/trackshare.js')
  .js('resources/js/trackshare.js', 'public/js');

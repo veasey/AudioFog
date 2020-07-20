@@ -4,8 +4,14 @@ Share and play audio files for free.
 
 ## Future Features
 
-- why does track play immediately?
-- load() interrupted error
+error:
+
+why
+trackshare.js:49875 good
+trackshare.js:49872 why
+trackshare.js:49875 good
+trackshare.js:49967 load first track
+
 - scrubber broken
 
 - scrubber not going to beginning on new track
