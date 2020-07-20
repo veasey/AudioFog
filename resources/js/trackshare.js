@@ -41,11 +41,6 @@ class Player {
     this.HTMLelement.onended = function() {
       // this.playNext();
     };
-
-    // scrubber on change
-    $('.player-ctrl-seek').on("change", function(newValue) {
-      $('audio')[0].currentTime = newValue;
-    });
   }
 
   /**
@@ -61,6 +56,17 @@ class Player {
     this.HTMLelement.load();
     this.HTMLelement.pause();
 
+    this.resetScrubber();
+
+    // update info
+    this.updateTrackInfo();
+  }
+
+  /**
+   * setup scrubber for loaded track
+   */
+  resetScrubber() {
+
     // reset scrubber
     // @hacks here be hacks
     this.HTMLelement.currentTime = 0;
@@ -71,8 +77,10 @@ class Player {
       $('.player-ctrl-seek').attr('value', parseInt($('audio')[0].currentTime, 10));
     });
 
-    // update info
-    this.updateTrackInfo();
+    $('.player-ctrl-seek').on("change", function(e) {
+      var newValue = e.target.value;
+      $('audio')[0].currentTime = parseInt(newValue);
+    });
   }
 
   /**

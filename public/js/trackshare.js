@@ -49833,12 +49833,7 @@ var Player = /*#__PURE__*/function () {
     this.HTMLelement = $('audio')[0];
 
     this.HTMLelement.onended = function () {// this.playNext();
-    }; // scrubber on change
-
-
-    $('.player-ctrl-seek').on("change", function (newValue) {
-      $('audio')[0].currentTime = newValue;
-    });
+    };
   }
   /**
    * prepare track so we can play it
@@ -49853,17 +49848,29 @@ var Player = /*#__PURE__*/function () {
 
       $('audio source').attr('src', track.data('filepath'));
       this.HTMLelement.load();
-      this.HTMLelement.pause(); // reset scrubber
-      // @hacks here be hacks
+      this.HTMLelement.pause();
+      this.resetScrubber(); // update info
 
+      this.updateTrackInfo();
+    }
+    /**
+     * setup scrubber for loaded track
+     */
+
+  }, {
+    key: "resetScrubber",
+    value: function resetScrubber() {
+      // reset scrubber
+      // @hacks here be hacks
       this.HTMLelement.currentTime = 0;
       $('.player-ctrl-seek').attr('value', 0);
       $('.player-ctrl-seek').attr('max', $('audio')[0].duration);
       this.HTMLelement.addEventListener('timeupdate', function () {
         $('.player-ctrl-seek').attr('value', parseInt($('audio')[0].currentTime, 10));
-      }); // update info
-
-      this.updateTrackInfo();
+      });
+      $('.player-ctrl-seek').on("change", function (newValue) {
+        $('audio')[0].currentTime = parseInt(newValue);
+      });
     }
     /**
      * play next track

@@ -12,11 +12,10 @@ trackshare.js:49872 why
 trackshare.js:49875 good
 trackshare.js:49967 load first track
 
-- scrubber broken
+- scrubber needs to change song position when changed
+- scrubber needs to be reset when changing track
+- fix prev and next btns
 
-- scrubber not going to beginning on new track
-- fix scrubber styling
-- song name to be vertically aligned
 - test on firefox (as does not support mp3?)
 
 - Additional Track Info
