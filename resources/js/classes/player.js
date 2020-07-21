@@ -36,8 +36,8 @@ class Player {
 
     // reset scrubber
     // @hacks here be hacks
-    this.HTMLelement.currentTime = 0;
-    $('.player-ctrl-seek').attr('value', 0);
+    $('audio')[0].currentTime = 0;
+    $('.player-ctrl-seek').val(0);
     $('.player-ctrl-seek').attr('max', $('audio')[0].duration);
 
     this.HTMLelement.addEventListener('timeupdate',function () {
@@ -46,7 +46,6 @@ class Player {
 
     $('.player-ctrl-seek').on("change", function(e) {
       var newValue = e.target.value;
-      console.log(newValue);
       $('audio')[0].currentTime = parseInt(newValue);
     });
   }

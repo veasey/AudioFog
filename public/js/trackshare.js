@@ -49862,15 +49862,14 @@ var Player = /*#__PURE__*/function () {
     value: function resetScrubber() {
       // reset scrubber
       // @hacks here be hacks
-      this.HTMLelement.currentTime = 0;
-      $('.player-ctrl-seek').attr('value', 0);
+      $('audio')[0].currentTime = 0;
+      $('.player-ctrl-seek').val(0);
       $('.player-ctrl-seek').attr('max', $('audio')[0].duration);
       this.HTMLelement.addEventListener('timeupdate', function () {
         $('.player-ctrl-seek').attr('value', parseInt($('audio')[0].currentTime, 10));
       });
       $('.player-ctrl-seek').on("change", function (e) {
         var newValue = e.target.value;
-        console.log(newValue);
         $('audio')[0].currentTime = parseInt(newValue);
       });
     }
@@ -49882,15 +49881,6 @@ var Player = /*#__PURE__*/function () {
     key: "playNext",
     value: function playNext() {
       var next = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-      console.log('play next 3'); // debug
-      // why is this method being run before onEnded should be triggered?
-
-      if (!this.track) {
-        console.log('why');
-      }
-
-      console.log('good');
-      return false;
 
       if (!$('.player-btn-repeat').hasClass('selected')) {
         if ($('.player-btn-shuffle').hasClass('selected')) {
@@ -49913,6 +49903,11 @@ var Player = /*#__PURE__*/function () {
       if ($('.player-btn-pause').is(':visible')) {
         this.HTMLelement.play();
       }
+    }
+  }, {
+    key: "playPrev",
+    value: function playPrev() {
+      this.playNext(false);
     }
     /**
      * update meta data in header

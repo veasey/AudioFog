@@ -4,8 +4,6 @@ Share and play audio files for free.
 
 ## Future Features
 
-- scrubber needs to change song position when changed
-- scrubber needs to be reset when changing track
 - fix prev and next btns
 
 - test on firefox (as does not support mp3?)
