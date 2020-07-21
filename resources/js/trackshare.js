@@ -79,6 +79,7 @@ class Player {
 
     $('.player-ctrl-seek').on("change", function(e) {
       var newValue = e.target.value;
+      console.log(newValue);
       $('audio')[0].currentTime = parseInt(newValue);
     });
   }
@@ -118,6 +119,10 @@ class Player {
     if ($('.player-btn-pause').is(':visible')) {
       this.HTMLelement.play();
     }
+  }
+
+  playPrev() {
+    this.playNext(false);
   }
 
   /**
@@ -163,8 +168,8 @@ $( document ).ready(function() {
     player.HTMLelement.play();
   });
 
-  $('.player-btn-back').click(player.playNext());
-  $('.player-btn-next').click(player.playNext(false));
+  $('.player-btn-back').click(player.playNext);
+  $('.player-btn-next').click(player.playPrev);
 
   $('.player-btn-repeat').click(function() {
     $('.player-btn-shuffle').removeClass('selected');

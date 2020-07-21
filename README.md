@@ -4,14 +4,6 @@ Share and play audio files for free.
 
 ## Future Features
 
-error:
-
-why
-trackshare.js:49875 good
-trackshare.js:49872 why
-trackshare.js:49875 good
-trackshare.js:49967 load first track
-
 - scrubber needs to change song position when changed
 - scrubber needs to be reset when changing track
 - fix prev and next btns

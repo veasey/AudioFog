@@ -49868,7 +49868,9 @@ var Player = /*#__PURE__*/function () {
       this.HTMLelement.addEventListener('timeupdate', function () {
         $('.player-ctrl-seek').attr('value', parseInt($('audio')[0].currentTime, 10));
       });
-      $('.player-ctrl-seek').on("change", function (newValue) {
+      $('.player-ctrl-seek').on("change", function (e) {
+        var newValue = e.target.value;
+        console.log(newValue);
         $('audio')[0].currentTime = parseInt(newValue);
       });
     }
@@ -49957,8 +49959,8 @@ $(document).ready(function () {
     $('.player-btn-play').hide();
     player.HTMLelement.play();
   });
-  $('.player-btn-back').click(player.playNext());
-  $('.player-btn-next').click(player.playNext(false));
+  $('.player-btn-back').click(player.playNext);
+  $('.player-btn-next').click(player.playPrev);
   $('.player-btn-repeat').click(function () {
     $('.player-btn-shuffle').removeClass('selected');
     $(this).toggleClass('selected');

@@ -46,6 +46,7 @@ class Player {
 
     $('.player-ctrl-seek').on("change", function(e) {
       var newValue = e.target.value;
+      console.log(newValue);
       $('audio')[0].currentTime = parseInt(newValue);
     });
   }
@@ -54,15 +55,6 @@ class Player {
    * play next track
    */
   playNext(next = true) {
-
-    console.log('play next 3');
-
-    // debug
-    // why is this method being run before onEnded should be triggered?
-    if (!this.track) {
-      console.log('why');
-    } console.log('good');
-    return false;
 
     if(!$('.player-btn-repeat').hasClass('selected')) {
       if ($('.player-btn-shuffle').hasClass('selected')) {
@@ -85,6 +77,10 @@ class Player {
     if ($('.player-btn-pause').is(':visible')) {
       this.HTMLelement.play();
     }
+  }
+
+  playPrev() {
+    this.playNext(false);
   }
 
   /**
