@@ -130,6 +130,11 @@
 
       </div>
     </div>
-    <script src="{{ asset('js/trackshare.js') }}"></script>
+
+    <!-- js -->
+    <script src="{{ asset('manifest.js') }}"></script>
+    <script src="{{ asset('vendor.js') }}"></script>
+    <script src="{{ asset('app.js') }}"></script>
+
     </body>
 </html>

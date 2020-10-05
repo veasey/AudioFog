@@ -39,7 +39,7 @@ class Player {
 
     this.HTMLelement = $('audio')[0];
     this.HTMLelement.onended = function() {
-      // this.playNext();
+      this.playNext();
     };
   }
 
@@ -112,7 +112,7 @@ class Player {
   }
 
   playPrev() {
-    this.playNext(false);
+   this.playNext(false);
   }
 
   /**
@@ -143,8 +143,14 @@ class Player {
 $( document ).ready(function() {
 
   player = new Player();
+  player.loadTrack($('.playtrack').first(), initButtons());
+});
 
-  // player btns
+function initButtons() {
+
+  console.log('bazinga!');
+  console.log("init buttons");
+  console.log(player);
 
   $('.player-btn-pause').click(function(){
     $('.player-btn-pause').hide();
@@ -157,9 +163,6 @@ $( document ).ready(function() {
     $('.player-btn-play').hide();
     player.HTMLelement.play();
   });
-
-  $('.player-btn-back').click(player.playNext);
-  $('.player-btn-next').click(player.playPrev);
 
   $('.player-btn-repeat').click(function() {
     $('.player-btn-shuffle').removeClass('selected');
@@ -184,7 +187,6 @@ $( document ).ready(function() {
     player.HTMLelement.play();
   });
 
-  // load first track
-  console.log('load first track');
-  player.loadTrack($('.playtrack').first());
-});
+  $('.player-btn-back').click(player.playPrev);
+  $('.player-btn-next').click(player.playNext);
+}

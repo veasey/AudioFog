@@ -1,6 +1,7 @@
 {
-    "/js/trackshare.js": "/js/trackshare.js",
-    "/css/app.css": "/css/app.css",
-    "/css/player.css": "/css/player.css",
-    "/resources/js/trackshare.js": "/resources/js/trackshare.js"
+    "/vendor.js": "/vendor.js?id=009081f4b10de387bc4e",
+    "/manifest.js": "/manifest.js?id=6a946afd3836dfe833ab",
+    "/css/app.css": "/css/app.css?id=2f6c989885b152cd133d",
+    "/css/player.css": "/css/player.css?id=5b3cd53e4b0b7a79ac65",
+    "/app.js": "/app.js?id=aef53c768c98e461c0af"
 }

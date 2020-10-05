@@ -5,9 +5,6 @@ Share and play audio files for free.
 ## Future Features
 
 - fix prev and next btns
-
-- test on firefox (as does not support mp3?)
-
 - Additional Track Info
   - share / embed button
   - download utton
@@ -28,6 +25,7 @@ Share and play audio files for free.
 - design
   - player in footer bar on bottom, all inline
 
+- test on firefox (as does not support mp3?)
 
 ## Troubleshooting
 

@@ -1,11 +1,11 @@
 const mix = require('laravel-mix');
 
-mix.scripts([
-    'resources/js/app.js',
+mix.version()
+  .scripts([
     'resources/js/classes/player.js',
     'resources/js/player.js'
- ], 'resources/js/trackshare.js')
- .js('resources/js/trackshare.js', 'public/js');
+ ], 'public/app.js')
+  .extract(['vue']);
 
-mix.sass('resources/sass/app.scss', 'public/css/')
-.sass('resources/sass/player.scss', 'public/css/');
+mix.sass('resources/sass/app.scss', 'public/css')
+.sass('resources/sass/player.scss', 'public/css');

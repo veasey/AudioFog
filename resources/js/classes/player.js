@@ -1,4 +1,4 @@
-global.$ = global.jQuery = require('jquery');
+
 
 class Player {
 
@@ -6,7 +6,7 @@ class Player {
 
     this.HTMLelement = $('audio')[0];
     this.HTMLelement.onended = function() {
-      // this.playNext();
+      this.playNext();
     };
   }
 
@@ -79,7 +79,7 @@ class Player {
   }
 
   playPrev() {
-    this.playNext(false);
+   this.playNext(false);
   }
 
   /**
