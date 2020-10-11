@@ -132,9 +132,8 @@
     </div>
 
     <!-- js -->
-    <script src="{{ asset('manifest.js') }}"></script>
-    <script src="{{ asset('vendor.js') }}"></script>
-    <script src="{{ asset('app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="{{ asset(mix('app.js')) }}"></script>
 
     </body>
 </html>
