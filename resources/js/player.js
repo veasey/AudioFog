@@ -1,14 +1,11 @@
 $( document ).ready(function() {
 
   player = new Player();
-  player.loadTrack($('.playtrack').first(), initButtons());
+  player.loadTrack($('.playtrack').first());
+  initButtons()
 });
 
 function initButtons() {
-
-  console.log('bazinga!');
-  console.log("init buttons");
-  console.log(player);
 
   $('.player-btn-pause').click(function(){
     $('.player-btn-pause').hide();
@@ -45,6 +42,6 @@ function initButtons() {
     player.HTMLelement.play();
   });
 
-  $('.player-btn-back').click(player.playPrev);
-  $('.player-btn-next').click(player.playNext);
+  $('.player-btn-back').click(function() { player.playPrev(); });
+  $('.player-btn-next').click(function() { player.playNext(); });
 }

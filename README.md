@@ -2,10 +2,7 @@
 
 Share and play audio files for free.
 
-## Todo & bugs
-
-- fix prev and next btns
-- test on firefox (as does not support mp3?)
+## Todo
 
 ### Future Features: Usability
 

@@ -1,5 +1,3 @@
-
-
 class Player {
 
   constructor() {
@@ -15,8 +13,10 @@ class Player {
    */
   loadTrack(track) {
 
+    this.track = track;
+
     $('.playtrack').removeClass('playing');
-    this.track = track.addClass('playing');
+    track.addClass('playing');
 
     // prepare HTML audio element
     $('audio source').attr('src', track.data('filepath'));
@@ -61,12 +61,12 @@ class Player {
         this.track.removeClass('playing');
         $('.playtrack').eq(Math.floor(Math.random() * $('.playtrack').length)).addClass('playing');
       } else {
-        if (next && !this.track.is(':first-child')) {
+        if (!next && !this.track.is(':first-child')) {
           // next track
-          this.track.removeClass('playing').next().addClass('playing');
-        } else if (!this.track.is(':last-child')) {
-          // previous track
           this.track.removeClass('playing').prev().addClass('playing');
+        } else if (next && !this.track.is(':last-child')) {
+          // previous track
+          this.track.removeClass('playing').next().addClass('playing');
         }
       }
     }
