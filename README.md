@@ -4,6 +4,10 @@ Share and play audio files for free.
 
 ## Todo
 
+Bugs:
+
+crashes on registration 
+
 ### Future Features: Usability
 
 - Additional Track Info
