@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Track;
+use App\User;
 use \Spatie\Tags\Tag;
+use Auth;
 
 class PlayerController extends Controller
 {
@@ -13,7 +15,8 @@ class PlayerController extends Controller
       // grab some songs
       $viewData = [
         'tracks' => Track::inRandomOrder()->get(),
-        'tags'   => Tag::inRandomOrder()->get()
+        'tags'   => Tag::inRandomOrder()->get(),
+        'user'   => User::find(Auth::id())->name
       ];
       return view('welcome')->with($viewData);
     }
