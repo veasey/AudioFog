@@ -16,7 +16,7 @@ class PlayerController extends Controller
       $viewData = [
         'tracks' => Track::inRandomOrder()->get(),
         'tags'   => Tag::inRandomOrder()->get(),
-        'user'   => User::find(Auth::id())->name
+        'user'   => (Auth::id()) ? User::find(Auth::id())->name : null
       ];
       return view('welcome')->with($viewData);
     }

@@ -39,20 +39,22 @@
                     <a class="nav-link active" aria-current="page" href="#">Listen</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/Upload">Upload</a>
+                    <a class="nav-link" href="/upload">Upload</a>
                   </li>
 
                   <!-- user dropdown -->
                   @if (Auth::check())
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownuser" data-bs-toggle="dropdown" aria-expanded="false">Logged in as {{$user}}</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownuser">
-                      <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownuser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Logged in as {{$user}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownuser">
+                      <a class="dropdown-item" href="#">Logout</a>
+                    </div >
                   </li>
                   @else
                   <li class="nav-item">
-                    <a class="nav-link" href="/Login">Login</a>
+                    <a class="nav-link" href="/login">Login</a>
                   </li>
                   @endif
 
