@@ -16,6 +16,7 @@
 
         <!-- header -->
         <header>
+
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
 
@@ -25,8 +26,10 @@
                   <path stroke="#fff" stroke-linecap="round" d="M2.5 7v2m12-2v2m-2-3v4m-8-4v4m4-7.5v11m-2-9v7m4-7v7"/>
                 </svg>
                 <strong class="text-white">AudioFog</strong>
-                &nbsp;<span class="text-muted">Node | Veasey</span>
+                <!-- &nbsp;<span class="text-muted">Node | Veasey</span> -->
               </a>
+
+              <div class="float-right">
 
               <!-- menu -->
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +45,7 @@
                     <a class="nav-link" href="/upload">Upload</a>
                   </li>
 
-                  <!-- user dropdown -->
+
                   @if (Auth::check())
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownuser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,7 +64,9 @@
                 </ul>
               </div>
             </div>
+            </div>
           </nav>
+
        </header>
 
        <!-- tracks -->
@@ -167,7 +172,9 @@
     </div>
 
     <!-- js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
     <script src="{{ asset(mix('app.js')) }}"></script>
 
     </body>
