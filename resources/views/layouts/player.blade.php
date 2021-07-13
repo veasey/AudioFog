@@ -16,58 +16,8 @@
 
         <!-- header -->
         <header>
-
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-
-              <!-- logo & title -->
-              <a href="/" class="navbar-brand d-flex align-items-center">
-                <svg class="bi bi-soundwave" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke="#fff" stroke-linecap="round" d="M2.5 7v2m12-2v2m-2-3v4m-8-4v4m4-7.5v11m-2-9v7m4-7v7"/>
-                </svg>
-                <strong class="text-white">AudioFog</strong>
-                <!-- &nbsp;<span class="text-muted">Node | Veasey</span> -->
-              </a>
-
-              <div class="float-right">
-
-              <!-- menu -->
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Listen</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/upload">Upload</a>
-                  </li>
-
-
-                  @if (Auth::check())
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownuser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Logged in as {{$user}}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownuser">
-                      <a class="dropdown-item" href="#">Logout</a>
-                    </div >
-                  </li>
-                  @else
-                  <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
-                  </li>
-                  @endif
-
-                </ul>
-              </div>
-            </div>
-            </div>
-          </nav>
-
-       </header>
+          @include('components.mainnav')
+        </header>
 
        <!-- tracks -->
        <div class="container mt-4">
@@ -173,8 +123,7 @@
 
     <!-- js -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="{{ asset(mix('app.js')) }}"></script>
 
     </body>

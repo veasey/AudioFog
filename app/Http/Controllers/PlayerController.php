@@ -15,8 +15,7 @@ class PlayerController extends Controller
       // grab some songs
       $viewData = [
         'tracks' => Track::inRandomOrder()->get(),
-        'tags'   => Tag::inRandomOrder()->get(),
-        'user'   => (Auth::id()) ? User::find(Auth::id())->name : null
+        'tags'   => Tag::inRandomOrder()->get()
       ];
       return view('welcome')->with($viewData);
     }

@@ -13,14 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// welcome page
 Route::get('/', 'PlayerController@welcome')->name('welcome');
-Route::get('/tag/{tag}', 'PlayerController@getTagged')->name('tag');
-Route::get('/track/{id}', 'PlayerController@getTrack')->name('track');
-Route::post('/track/addplay', 'PlayerController@addPlay');
 
-Auth::routes();
-
+// general use
 Route::redirect('/upload', '/dashboard/upload');
 Route::any('dashboard/upload', 'Dashboard\TracksController@create')->name('dashboard.upload');
 Route::get('dashboard/tracks', 'Dashboard\TracksController@show')->name('dashboard.tracks');
 Route::resource('track', 'Dashboard\TracksController');
+
+// user auth
+Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
+
+// upload tracks
+Route::get('/tag/{tag}', 'PlayerController@getTagged')->name('tag');
+Route::get('/track/{id}', 'PlayerController@getTrack')->name('track');
+Route::post('/track/addplay', 'PlayerController@addPlay');
