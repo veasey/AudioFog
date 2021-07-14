@@ -10067,7 +10067,7 @@ audio {
   display: none;
 }
 
-.navbar .player {
+.player {
   -webkit-user-select: none;
   /* Safari */
   -moz-user-select: none;
@@ -10077,27 +10077,27 @@ audio {
   user-select: none;
   /* Standard */
 }
-.navbar .player svg {
-  color: #ddd;
+.player svg {
+  color: #333;
 }
-.navbar .player svg.player-btn-pause {
+.player svg.player-btn-pause {
   display: none;
 }
-.navbar .player svg:hover {
-  color: #fff;
+.player svg:hover {
+  color: #f6993f;
   cursor: pointer;
 }
-.navbar .player svg.selected {
+.player svg.selected {
   color: #f6993f;
 }
-.navbar .player input[type=range] {
+.player input[type=range] {
   height: 28px;
   -webkit-appearance: none;
-  border: 1px solid #ddd;
+  border: 1px solid #orange;
   border-radius: 20px;
   background-color: #343a40;
 }
-.navbar .player input::-webkit-slider-thumb {
+.player input::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
@@ -10105,7 +10105,8 @@ audio {
   border-radius: 10px;
   background: #f6993f;
 }
-.navbar input, .navbar p {
+
+input, p {
   vertical-align: middle;
   margin: 0;
 }
