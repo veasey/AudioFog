@@ -92,7 +92,7 @@ class Player {
 
     // display track title
     $('.song-title').text(this.track.find('.title').text());
-    $('.song-title').attr('href', 'track/' + this.track.data('trackid'));
+    $('.song-title').attr('href', '/track/' + this.track.data('trackid'));
 
 
     // display track album
