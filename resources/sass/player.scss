@@ -91,35 +91,28 @@ audio {
     color: #333;
 
     &:hover {
-      color: $orange;
+      color: blue;
       cursor: pointer;
     }
 
     &.selected {
-      color: $orange;
+      color: blue;
     }
 
   }
 
   // scrubber
   input[type="range"] {
-    height: 28px;
+    height: 1em;
     -webkit-appearance: none;
-    border: 1px solid #orange;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
     background-color: #343a40;
   }
   input::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border:1px solid #ddd;
-
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: $orange;
+    width: 1em;
+    height: 1em;
+    border:1px solid lightgray;
+    background: #343a40;
   }
 }
 

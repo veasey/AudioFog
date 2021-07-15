@@ -20,7 +20,7 @@ Route::get('/', 'PlayerController@welcome')->name('welcome');
 Route::redirect('/upload', '/dashboard/upload');
 Route::any('dashboard/upload', 'Dashboard\TracksController@create')->name('dashboard.upload');
 Route::get('dashboard/tracks', 'Dashboard\TracksController@show')->name('dashboard.tracks');
-Route::resource('track', 'Dashboard\TracksController');
+Route::resource('dashboard/track', 'Dashboard\TracksController');
 
 // user auth
 Auth::routes();

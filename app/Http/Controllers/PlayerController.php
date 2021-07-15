@@ -45,7 +45,7 @@ class PlayerController extends Controller
         'track' => $track,
         'tags'   => Tag::inRandomOrder()->get()
       ];
-      return view('taggedTracks')->with($viewData);
+      return view('singleTrack')->with($viewData);
     }
 
     public function addPlay(Request $request) {

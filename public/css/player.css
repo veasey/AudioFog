@@ -10084,26 +10084,23 @@ audio {
   display: none;
 }
 .player svg:hover {
-  color: #f6993f;
+  color: blue;
   cursor: pointer;
 }
 .player svg.selected {
-  color: #f6993f;
+  color: blue;
 }
 .player input[type=range] {
-  height: 28px;
+  height: 1em;
   -webkit-appearance: none;
-  border: 1px solid #orange;
-  border-radius: 20px;
   background-color: #343a40;
 }
 .player input::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background: #f6993f;
+  width: 1em;
+  height: 1em;
+  border: 1px solid lightgray;
+  background: #343a40;
 }
 
 input, p {

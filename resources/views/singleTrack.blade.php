@@ -4,12 +4,22 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md">
-      <!-- tracks -->
-      <ul class="tracks list-unstyled">
-          <x-track trackid="{{ $track->id }}" />
-      </ul>
+    <div class="col-md-8">
+
+      <h2>{{ $track->title }}</h2>
+
+      @if ($track->album)
+        <h3>{{ $track->album }}</h3>
+      @endif
+
+      @if ($track->artist)
+        <h4>{{ $track->artist }}</h4>
+      @endif
+
+      <p>{{ $track->desc}}</p>
+
     </div>
+
     <div class="col-md-4">
       <!-- tracks -->
       <ul>
