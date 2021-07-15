@@ -19,33 +19,19 @@
           @include('components.mainnav')
         </header>
 
-       <!-- tracks -->
-       <div class="container mt-4">
-         @yield('content')
-       </div>
+        <div class="container">
 
-       <!-- info -->
-       <div class="container">
-         <div class="row">
-           <div class="col-sm-8 col-md-7 py-4">
-             <h4>About</h4>
-             <p class="text-muted">AudioFog is a free alterative for sharing and playing tracks.
-               It is maintained by <a href="https://clintveasey.co.uk">Clint Veasey</a> if you require any
-               assitance getting up and running.
-             </p>
-             <p class="text-muted">I threw this together to share my own music without any nonsense adverts or
-               limitations. It can easily support multiple artists and genres.</p>
-             <p class="text-muted">Otherwise, feel free to fork from
-               <a href="https://github.com/veasey/AudioFog">https://github.com/veasey/AudioFog</a>.
-             </p>
-           </div>
-           <div class="col-sm-4 offset-md-1 py-4">
-             <h4>Legal</h4>
-             <p class="text-muted">All tracks here are composed by myself and are free to download
-               and listen to.</p>
-           </div>
-         </div>
-       </div>
+           <!-- tracks -->
+           @yield('content')
+
+           <!-- info -->
+           <hr />
+           <p class="py-2">All tracks here are composed by myself and are free to download and listen to. I would love to hear from you if you find something you enjoy.</p>
+           <p class="py-2">This is a free web app to play and share music. Get in touch <a href="https://clintveasey.co.uk">here</a> if you need any help getting set up.</p>
+           <p class="py-2">If you would like to expand on this code or have an ideas to make it better than feel free to checl out the project on <a href="https://github.com/veasey/AudioFog">https://github.com/veasey/AudioFog</a>.</p>
+
+        </div>
+      </div>
 
        <!-- footer -->
        <footer class="footer">
