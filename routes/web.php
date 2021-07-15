@@ -29,4 +29,6 @@ Route::get('/logout', 'Auth\LoginController@logout');
 // upload tracks
 Route::get('/tag/{tag}', 'PlayerController@getTagged')->name('tag');
 Route::get('/track/{id}', 'PlayerController@getTrack')->name('track');
+Route::get('/album/{id}', 'PlayerController@getAlbum')->name('album');
+Route::get('/artist', 'PlayerController@searchArtist');
 Route::post('/track/addplay', 'PlayerController@addPlay');

@@ -10027,9 +10027,6 @@ body {
 .playtrack:hover {
   color: black;
 }
-.playtrack span {
-  padding: 0 0.5em;
-}
 .playtrack.playing span {
   background: #6cb2eb;
 }

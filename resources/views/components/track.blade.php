@@ -1,4 +1,4 @@
-<li class="playtrack"
+<li class="playtrack my-2"
   data-filepath="{{ $track->getFilepath() }}"
   data-trackid="{{ $track->id }}"
   data-album="{{ $track->album }}"

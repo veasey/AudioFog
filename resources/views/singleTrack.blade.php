@@ -8,15 +8,23 @@
 
       <h2>{{ $track->title }}</h2>
 
-      @if ($track->album)
-        <h3>{{ $track->album }}</h3>
+      @if ($track->album || $track->artist)
+      <p>
+        @if ($track->album)
+          From the album <b>{{ $track->album }}</b>
+        @endif
+        @if ($track->artist)
+          by <a href="/artist?search={{ $track->artist }}">{{ $track->artist }}</a>
+        @endif
+      </p>
       @endif
 
-      @if ($track->artist)
-        <h4>{{ $track->artist }}</h4>
+      @if ($track->desc)
+      <div class="my-2 p-5 text-white bg-dark rounded-3">
+        <h4>Info</h4>
+        <p>{{$track->desc}}</p>
+      </div>
       @endif
-
-      <p>{{ $track->desc}}</p>
 
     </div>
 

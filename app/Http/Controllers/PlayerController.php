@@ -57,4 +57,19 @@ class PlayerController extends Controller
       return response('Thankyou Listener', 200)
         ->header('Content-Type', 'text/plain');
     }
+
+    // show a single track
+    public function searchArtist(Request $request) {
+
+      $artist = $request->input('search');
+      if (!$tracks = Track::where('artist', '=', $artist)->get()) {
+        abort(404);
+      }
+
+      $viewData = [
+        'tracks' => $tracks,
+        'artist' => $artist
+      ];
+      return view('artistResult')->with($viewData);
+    }
 }
