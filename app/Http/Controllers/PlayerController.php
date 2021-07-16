@@ -61,15 +61,40 @@ class PlayerController extends Controller
     // show a single track
     public function searchArtist(Request $request) {
 
-      $artist = $request->input('search');
+      $artist = $request->input('artist');
       if (!$tracks = Track::where('artist', '=', $artist)->get()) {
+        abort(404);
+      }
+
+      $albums = Track::select('album')
+                     ->where('artist', '=', $artist)
+                     ->distinct('album')
+                     ->get();
+
+      $viewData = [
+        'tracks' => $tracks,
+        'artist' => $artist,
+        'albums'  => $albums
+      ];
+      return view('artistResult')->with($viewData);
+    }
+
+    // show a single track
+    public function searchAlbum(Request $request) {
+
+      $artist = $request->input('artist');
+      $album = $request->input('album');
+      if (!$tracks = Track::where('artist', '=', $artist)
+                          ->where('album', '=', $album)
+                          ->get()) {
         abort(404);
       }
 
       $viewData = [
         'tracks' => $tracks,
-        'artist' => $artist
+        'artist' => $artist,
+        'album'  => $album
       ];
-      return view('artistResult')->with($viewData);
+      return view('albumResult')->with($viewData);
     }
 }

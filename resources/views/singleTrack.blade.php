@@ -11,10 +11,10 @@
       @if ($track->album || $track->artist)
       <p>
         @if ($track->album)
-          From the album <b>{{ $track->album }}</b>
+          From the album <a href="/album?artist={{ $track->artist }}&album={{ $track->album }}">{{ $track->album }}</a>
         @endif
         @if ($track->artist)
-          by <a href="/artist?search={{ $track->artist }}">{{ $track->artist }}</a>
+          by <a href="/artist?artist={{ $track->artist }}">{{ $track->artist }}</a>
         @endif
       </p>
       @endif

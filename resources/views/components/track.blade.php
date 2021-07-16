@@ -7,9 +7,6 @@
   data-desc="{{ $track->desc }}">
 
   <span class="title">
-    @if($track->artist)
-      {{ $track->artist }} -
-    @endif
     {{ $track->title }}
   </span>
 

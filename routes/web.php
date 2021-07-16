@@ -31,4 +31,5 @@ Route::get('/tag/{tag}', 'PlayerController@getTagged')->name('tag');
 Route::get('/track/{id}', 'PlayerController@getTrack')->name('track');
 Route::get('/album/{id}', 'PlayerController@getAlbum')->name('album');
 Route::get('/artist', 'PlayerController@searchArtist');
+Route::get('/album', 'PlayerController@searchAlbum');
 Route::post('/track/addplay', 'PlayerController@addPlay');

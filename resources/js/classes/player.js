@@ -87,11 +87,18 @@ class Player {
    */
   updateTrackInfo() {
 
+    var songTitle = '';
+    var songArtist = '';
+
     // clear all previous track info
     $('.song-title, .song-album, .song-year, .song-desc').text('');
 
     // display track title
-    $('.song-title').text(this.track.find('.title').text());
+    songTitle = this.track.find('.title').text();
+    if (songArtist = this.track.data('artist')) {
+      songTitle = songArtist + ' - ' + songTitle;
+    }
+    $('.song-title').text(songTitle);
     $('.song-title').attr('href', '/track/' + this.track.data('trackid'));
 
 
