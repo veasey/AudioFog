@@ -58,7 +58,6 @@ class PlayerController extends Controller
         ->header('Content-Type', 'text/plain');
     }
 
-    // show a single track
     public function searchArtist(Request $request) {
 
       $artist = $request->input('artist');
@@ -79,7 +78,6 @@ class PlayerController extends Controller
       return view('artistResult')->with($viewData);
     }
 
-    // show a single track
     public function searchAlbum(Request $request) {
 
       $artist = $request->input('artist');
