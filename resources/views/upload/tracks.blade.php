@@ -10,6 +10,9 @@
     <li class="nav-item">
       <a class="nav-link active" href="{{ route('dashboard.tracks') }}">Your Tracks</a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('dashboard.profile') }}">Your Profile</a>
+    </li>
   </ul>
 
   <div class="p-3 border-left border-right">
