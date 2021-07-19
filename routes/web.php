@@ -36,4 +36,4 @@ Route::get('dashboard/tracks', 'Dashboard\TracksController@show')->name('dashboa
 Route::resource('dashboard/track', 'Dashboard\TracksController');
 
 Route::get('dashboard/profile', 'Dashboard\ProfileController@show')->name('dashboard.profile');
-Route::get('dashboard/profile/update/{id}', 'Dashboard\ProfileController@update')->name('dashboard.profile.update');
+Route::patch('dashboard/profile/update/{id}', 'Dashboard\ProfileController@update')->name('dashboard.profile.update');

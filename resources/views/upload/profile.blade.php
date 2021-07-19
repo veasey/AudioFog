@@ -21,14 +21,40 @@
 
     <form action="{{ route('dashboard.profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
 
-      @include('inc.messages')
       @method('PATCH')
 
       {{ csrf_field() }}
 
-      <div class="form-group">
-        <label for="name">Artist Name</label>
-        <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="{{ $user->name }}">
+      <div class="row">
+
+        <div class="col-md-6">
+          <h3>Account Details</h3>
+          <hr />
+          <div class="form-group">
+            <label for="name">Username</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="name" value="{{ $user->name }}">
+          </div>
+          <div class="form-group">
+            <label for="name">Email</label>
+            <input type="text" class="form-control" id="email" name="email" aria-describedby="email" value="{{ $user->email }}">
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h3>Security</h3>
+          <hr />
+
+          <div class="form-group">
+            <label for="password">New Password</label>
+            <input type="password" class="form-control" id="password" name="password" aria-describedby="password" value="">
+          </div>
+
+          <div class="form-group">
+            <label for="password_confirmation">Confirm New Password</label>
+            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" aria-describedby="password_confirmation" value="">
+          </div>
+        </div>
+
       </div>
 
       <button class="btn btn-primary" type="submit">Update</button>
