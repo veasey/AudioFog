@@ -2,7 +2,6 @@
 
 ### Future Features: Usability
 
-- Additional Track Info
 - share / embed button
 - being able to delete an album
 - album edit form
@@ -15,9 +14,6 @@
 
 - generate album art based off keywords and title
 - visualisation
-
-- design
-  - player in footer bar on bottom, all inline
 
 ### Future Features: Scaling Up for larger music collections
 
