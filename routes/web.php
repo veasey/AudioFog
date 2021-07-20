@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PlayerController@welcome')->name('welcome');
 
 // general use
+Route::any('/search', 'SearchController@index')->name('search');
 Route::get('/tag/{tag}', 'PlayerController@getTagged')->name('tag');
 Route::get('/track/{id}', 'PlayerController@getTrack')->name('track');
 Route::get('/album/{id}', 'PlayerController@getAlbum')->name('album');
