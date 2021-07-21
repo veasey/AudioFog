@@ -78,6 +78,8 @@ class PlayerController extends Controller
       return view('artistResult')->with($viewData);
     }
 
+
+    // @todo - put in search controller
     public function searchAlbum(Request $request) {
 
       $artist = $request->input('artist');

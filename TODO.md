@@ -1,5 +1,10 @@
 # Todo
 
+### Core Functionality
+
+When clicking on track play / and proceed to play (such as search results)
+have icon appear. When clicked a second time / or icon clicked, take to single track view
+
 ### Future Features: Usability
 
 - share / embed button
