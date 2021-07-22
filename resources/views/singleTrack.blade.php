@@ -8,6 +8,10 @@
 
       <h2>{{ $track->title }}</h2>
 
+      <div class="d-none">
+        <x-track trackid="{{ $track->id }}" />
+      </div>
+
       @if ($track->album || $track->artist)
       <p>
         @if ($track->album)
@@ -29,10 +33,10 @@
     </div>
 
     <div class="col-md-4">
-      <!-- tracks -->
+      <!-- tags -->
       <ul>
         @foreach ($tags as $tag)
-          <li class="tag list-unstyled"><a href="/tag/{{$tag->name}}">{{ $tag->name }}</a></li>
+          <div class="tag"><a href="/tag/{{$tag->name}}">{{ $tag->name }}</a></div>
         @endforeach
       </ul>
     </div>

@@ -2,11 +2,7 @@
 
 ### Core Functionality
 
-When clicking on track play / and proceed to play (such as search results)
-have icon appear. When clicked a second time / or icon clicked, take to single track view
-feature: have playlist loaded for search results
-bug: does not play on single track
-bug: next / back btns do not work on album view
+bug: mobile menu does not dropdown
 
 ### Future Features: Scaling Up for larger music collections
 

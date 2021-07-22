@@ -36,10 +36,16 @@ function initButtons() {
 
   // click track name event
   $('.playtrack').click(function() {
-    player.loadTrack($(this));
-    $('.player-btn-pause').show();
-    $('.player-btn-play').hide();
-    player.HTMLelement.play();
+
+    // redirect if already clicked
+    if ($(this).hasClass('playing')) {
+      window.location.href = '/track/' + $(this).data('trackid');
+    } else {
+      player.loadTrack($(this));
+      $('.player-btn-pause').show();
+      $('.player-btn-play').hide();
+      player.HTMLelement.play();
+    }
   });
 
   $('.player-btn-back').click(function() { player.playPrev(); });
