@@ -1,9 +1,5 @@
 # Todo
 
-### Core Functionality
-
-bug: mobile menu does not dropdown
-
 ### Future Features: Scaling Up for larger music collections
 
 - filter by albums and years as well as tags
