@@ -94,7 +94,7 @@ class Player {
     $('.song-title, .song-album, .song-year, .song-desc').text('');
 
     // display track title
-    songTitle = this.track.find('.title').text();
+    songTitle = this.track.text();
     if (songArtist = this.track.data('artist')) {
       songTitle = songArtist + ' - ' + songTitle;
     }

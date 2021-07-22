@@ -16,42 +16,13 @@ body {
 }
 
 .playtrack {
-
-  font-size: 1.5em;
-
+  display: inline;
   cursor: pointer;
-
-  color: white;
-  .title {
-    color: black;
-  }
-
-  &:hover {
-    color: black;
-  }
-
   &.playing {
-    span {
-      background: $cyan;
-    }
+    font-weight: bold;
   }
 }
 
-ul {
-
-  padding-inline-start: 0px;
-
-  &.track {
-    @media (min-width: $breakpoint-phone) {
-      -moz-column-count: 4;
-      -moz-column-gap: 20px;
-      -webkit-column-count: 4;
-      -webkit-column-gap: 20px;
-      column-count: 4;
-      column-gap: 20px;
-    }
-  }
-}
 
 .footer {
   background: lightgray;

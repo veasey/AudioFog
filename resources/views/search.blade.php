@@ -23,7 +23,7 @@
       <h4>Tracks</h4>
       @forelse ($tracks as $track)
         <a href="/track/{{$track->id}}">
-          <div>{{ $track->title }}</div>
+          <x-track trackid="{{ $track->id }}" />
         </a>
       @empty
         <p>No tracks found</p>
@@ -42,9 +42,7 @@
     <div class="col-md-3">
       <h4>Tags</h4>
       @forelse ($tags as $tag)
-        <a href="/tag/{{$tag->name}}">
-          <div>{{ $tag->name }}</div>
-        </a>
+        <div><a href="/tag/{{$tag->name}}">{{ $tag->name }}</a></div>
       @empty
         <p>No tags found</p>
       @endforelse
