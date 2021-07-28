@@ -67,13 +67,14 @@
                     </form>
 
                     <!-- register link -->
+                    @if (config('app.env') != 'production')
                     <hr />
                     <div class="form-group row mb-0">
                       <div class="col-md-8 offset-md-2">
                         <p>Don't have an account yet? Then feel free to <a href="{{ route('register') }}">register</a> one.
                       </div>
                     </div>
-
+                    @endif
                 </div>
             </div>
         </div>
