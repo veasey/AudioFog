@@ -28,9 +28,11 @@
 
         <ul class="tracks list-unstyled">
           @forelse ($albums as $album)
-            <a href="/album?artist={{$artist}}&album={{$album->album}}">
-              <span class="py-2" style="font-size: 1.5em">{{$album->album}}</span>
-            </a>
+            <li>
+              <a href="/album?artist={{$artist}}&album={{$album->album}}">
+                <span class="py-2" style="font-size: 1.5em">{{$album->album}}</span>
+              </a>
+            </li>
           @endforeach
         </ul>
 
