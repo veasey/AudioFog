@@ -1,22 +1,31 @@
 @extends('layouts.player')
 @section('content')
 
+  <h2>Freshest Uploads</h2>
+
   <div class="row">
+
     <div class="col-md my-2">
       <!-- tracks -->
       @forelse ($tracks as $track)
-        <x-track trackid="{{ $track->id }}" />
+        <x-trackfull trackid="{{ $track->id }}" />
       @empty
         <p>No tracks yet. Maybe <a href="{{route('dashboard.upload')}}">upload</a> some?</p>
       @endforelse
     </div>
+
     <div class="col-md-4 my-2">
       @forelse ($tags as $tag)
-        <div class="tag"><a href="/tag/{{$tag->name}}">{{ $tag->name }}</a></div>
+        <div class="tag">
+          <a href="/tag/{{$tag->name}}">
+            {{ $tag->name }} 
+          </a>
+        </div>
       @empty
         <p>No tagged tracks found</p>
       @endforelse
     </div>
+
   </div>
 
   <!-- info -->
