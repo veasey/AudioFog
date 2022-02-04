@@ -38,6 +38,3 @@ Route::resource('dashboard/track', 'Dashboard\TracksController');
 
 Route::get('dashboard/profile', 'Dashboard\ProfileController@show')->name('dashboard.profile');
 Route::patch('dashboard/profile/update/{id}', 'Dashboard\ProfileController@update')->name('dashboard.profile.update');
-
-// deployment
-Route::post('deploy', 'DeployController@deploy');
