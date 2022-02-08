@@ -10007,7 +10007,6 @@ h3 {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  font-size: 14px;
 }
 @media (max-width: 480px) {
   body {
