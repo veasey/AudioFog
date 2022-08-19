@@ -23,6 +23,7 @@ Route::get('/track/{id}', 'PlayerController@getTrack')->name('track');
 Route::get('/album/{id}', 'PlayerController@getAlbum')->name('album');
 Route::get('/artist', 'PlayerController@searchArtist');
 Route::get('/album', 'PlayerController@searchAlbum');
+Route::get('/soundboard', 'PlayerController@soundboard')->name('soundboard');
 
 Route::post('/track/addplay', 'PlayerController@addPlay');
 

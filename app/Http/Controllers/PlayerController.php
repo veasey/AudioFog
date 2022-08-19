@@ -84,6 +84,7 @@ class PlayerController extends Controller
 
       $artist = $request->input('artist');
       $album = $request->input('album');
+
       if (!$tracks = Track::where('artist', '=', $artist)
                           ->where('album', '=', $album)
                           ->get()) {
@@ -96,5 +97,23 @@ class PlayerController extends Controller
         'album'  => $album
       ];
       return view('albumResult')->with($viewData);
+    }
+
+    public function soundboard(Request $request) {
+        $artist = $request->input('artist');
+        $album = $request->input('album');
+
+        if (!$tracks = Track::where('artist', '=', $artist)
+                            ->where('album', '=', $album)
+                            ->get()) {
+          abort(404);
+        }
+
+        $viewData = [
+          'tracks' => $tracks,
+          'artist' => $artist,
+          'album'  => $album
+        ];
+        return view('soundboard')->with($viewData);
     }
 }
