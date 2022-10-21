@@ -1,13 +1,12 @@
 # Todo
 
+ - auto loop on soundboard
+ - make the buttons a bit more obvious that they are clicked on player
+
 ### Deployment
 
  - webhook
-   - test webhook code
-   - test webhook code, again
-   - test webhook code, again
-   - test webhook code, again
-   - test webhook code, again
+   - test
 
 ### Bugs
 
