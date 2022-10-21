@@ -1,3 +1,4 @@
+@if (!empty($track))
 <div class="track playtrack mb-1"
     data-filepath="{{ $track->getFilepath() }}"
     data-trackid="{{ $track->id }}"
@@ -12,3 +13,4 @@
         {{ $track->title }}
       </div>
   </div>
+  @endif
