@@ -9321,6 +9321,8 @@ audio {
   user-select: none; /* Standard */
 }
 .player svg {
+  padding: 0.5em;
+  border: 1px solid lightgray;
   color: #333;
 }
 .player svg.player-btn-pause {
@@ -9331,7 +9333,9 @@ audio {
   cursor: pointer;
 }
 .player svg.selected {
-  color: blue;
+  background: 333;
+  color: white;
+  border: 1px solid white;
 }
 .player input[type=range] {
   height: 1em;

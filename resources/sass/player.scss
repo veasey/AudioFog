@@ -51,6 +51,9 @@ audio {
 
   svg {
 
+    padding: 0.5em;
+    border: 1px solid lightgray;
+
     &.player-btn-pause {
       display: none;
     }
@@ -63,7 +66,9 @@ audio {
     }
 
     &.selected {
-      color: blue;
+      background: 333;
+      color: white;
+      border: 1px solid white;
     }
 
   }
