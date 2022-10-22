@@ -35,6 +35,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::redirect('/upload', '/dashboard/upload');
 Route::any('dashboard/upload', 'Dashboard\TracksController@create')->name('dashboard.upload');
 Route::get('dashboard/tracks', 'Dashboard\TracksController@show')->name('dashboard.tracks');
+//Route::get('dashboard/track/{$id}', 'Dashboard\TracksController@edit')->name('dashboard.edit');
 Route::resource('dashboard/track', 'Dashboard\TracksController');
 
 Route::get('dashboard/profile', 'Dashboard\ProfileController@show')->name('dashboard.profile');

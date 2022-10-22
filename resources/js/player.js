@@ -39,7 +39,7 @@ function initButtons() {
 
     // redirect if already clicked
     if ($(this).hasClass('playing')) {
-      window.location.href = '/track/' + $(this).data('trackid');
+      window.location.href = 'track/' + $(this).data('trackid');
     } else {
       player.loadTrack($(this));
       $('.player-btn-pause').show();

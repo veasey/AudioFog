@@ -17,7 +17,7 @@
     <div class="col-md-4 my-2">
       @forelse ($tags as $tag)
         <div class="tag">
-          <a href="/tag/{{$tag->name}}">
+          <a href="{{ route('tag', ['tag' => $tag->name]) }}">
             {{ $tag->name }} 
           </a>
         </div>

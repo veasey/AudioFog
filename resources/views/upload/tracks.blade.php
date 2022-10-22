@@ -29,7 +29,7 @@
       <tbody>
         @foreach ($tracks as $track)
           <tr>
-            <td><a href="/dashboard/track/{{ $track->id }}/edit">{{ $track->title }}</a></td>
+            <td><a href="{{ route('track.edit', $track->id) }}">{{ $track->title }}</a></td>
             <td>{{ $track->plays }}</td>
         @endforeach
       </tbody>
