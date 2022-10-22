@@ -184,7 +184,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Spatie\Tags\TagsServiceProvider::class,
-
+        
+        App\Providers\HelperServiceProvider::class
     ],
 
     /*
