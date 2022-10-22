@@ -21,8 +21,8 @@ Route::any('/search', 'SearchController@index')->name('search');
 Route::get('/tag/{tag}', 'PlayerController@getTagged')->name('tag');
 Route::get('/track/{id}', 'PlayerController@getTrack')->name('track');
 Route::get('/album/{id}', 'PlayerController@getAlbum')->name('album');
-Route::get('/artist', 'PlayerController@searchArtist');
-Route::get('/album', 'PlayerController@searchAlbum');
+Route::get('/artist', 'PlayerController@searchArtist')->name('search-artist');
+Route::get('/album', 'PlayerController@searchAlbum')->name('search-album');
 Route::get('/soundboard', 'PlayerController@soundboard')->name('soundboard');
 
 Route::post('/track/addplay', 'PlayerController@addPlay');
@@ -35,7 +35,6 @@ Route::get('/logout', 'Auth\LoginController@logout');
 Route::redirect('/upload', '/dashboard/upload');
 Route::any('dashboard/upload', 'Dashboard\TracksController@create')->name('dashboard.upload');
 Route::get('dashboard/tracks', 'Dashboard\TracksController@show')->name('dashboard.tracks');
-//Route::get('dashboard/track/{$id}', 'Dashboard\TracksController@edit')->name('dashboard.edit');
 Route::resource('dashboard/track', 'Dashboard\TracksController');
 
 Route::get('dashboard/profile', 'Dashboard\ProfileController@show')->name('dashboard.profile');

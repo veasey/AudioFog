@@ -32,7 +32,7 @@
     <div class="col-md-3">
       <h4>Albums</h4>
       @forelse ($albums as $album)
-        <a href="/album?artist={{ $album->artist }}&album={{ $album->album }}">
+        <a href="{{ route('search-album', $album->artist, $album->album) }}">
           <div>{{ $album->album  }}</div>
         </a>
       @empty
@@ -42,7 +42,7 @@
     <div class="col-md-3">
       <h4>Tags</h4>
       @forelse ($tags as $tag)
-        <div><a href="/tag/{{$tag->name}}">{{ $tag->name }}</a></div>
+        <div><a href="{{ route('tag', $tag->name) }}">{{ $tag->name }}</a></div>
       @empty
         <p>No tags found</p>
       @endforelse
@@ -50,7 +50,7 @@
     <div class="col-md-3">
       <h4>Artists</h4>
       @forelse ($users as $user)
-        <a href="/artist?artist={{$user->name}}">
+        <a href="{{ route('search-artist', $user->name) }}">
           <div>{{ $user->name }}</div>
         </a>
       @empty

@@ -6,11 +6,15 @@
 ### Deployment
 
  - webhook
-   - test
 
 ### Bugs
 
  - Plays not working
+ - routes on single track blade
+
+### alpha
+
+ - soundboard mode
 
 ### Future Features
 
