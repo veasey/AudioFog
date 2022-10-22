@@ -31,6 +31,7 @@
           <tr>
             <td><a href="{{ route('track.edit', $track->id) }}">{{ $track->title }}</a></td>
             <td>{{ $track->plays }}</td>
+          </tr>
         @endforeach
       </tbody>
     </table>
