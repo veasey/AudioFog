@@ -26,6 +26,6 @@ class TrackFull extends Component
      */
     public function render()
     {
-        return view('components.trackfull')->with('track', $this->track);
+        return view('components.track_full')->with('track', $this->track);
     }
 }

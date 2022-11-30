@@ -16,7 +16,7 @@
 
         <!-- header -->
         <header>
-          @include('components.mainnav')
+          @include('components.main_nav')
         </header>
 
         <div class="container">

@@ -8,7 +8,7 @@
     <div class="col-md my-2">
       <!-- tracks -->
       @forelse ($tracks as $track)
-        <x-trackfull trackid="{{ $track->id }}" />
+        <x-track_full trackid="{{ $track->id }}" />
       @empty
         <p>No tracks yet. Maybe <a href="{{route('dashboard.upload')}}">upload</a> some?</p>
       @endforelse

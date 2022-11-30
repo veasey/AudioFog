@@ -32,7 +32,7 @@ class PlayerController extends Controller
         'tags'   => Tag::inRandomOrder()->get(),
         'tag'    => $tag
       ];
-      return view('taggedTracks')->with($viewData);
+      return view('tagged_tracks')->with($viewData);
     }
 
     // show a single track
@@ -45,7 +45,7 @@ class PlayerController extends Controller
         'track' => $track,
         'tags'   => Tag::inRandomOrder()->get()
       ];
-      return view('singleTrack')->with($viewData);
+      return view('single_track')->with($viewData);
     }
 
     public function addPlay(Request $request) {
@@ -75,7 +75,7 @@ class PlayerController extends Controller
         'artist' => $artist,
         'albums'  => $albums
       ];
-      return view('artistResult')->with($viewData);
+      return view('artist_result')->with($viewData);
     }
 
 
@@ -96,7 +96,7 @@ class PlayerController extends Controller
         'artist' => $artist,
         'album'  => $album
       ];
-      return view('albumResult')->with($viewData);
+      return view('album_result')->with($viewData);
     }
 
     public function soundboard(Request $request) {
